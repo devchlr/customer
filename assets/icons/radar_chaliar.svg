@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="146px" height="146px" viewBox="0 0 146 146" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient x1="0.5" y1="0" x2="0.5" y2="1" id="gradient_1">
+      <stop offset="0" stop-color="#F9F9F9" />
+      <stop offset="1" stop-color="#F1F1F1" />
+    </linearGradient>
+    <linearGradient x1="1.2200848" y1="0.8457925" x2="0.060300402" y2="0.03804589" id="gradient_2">
+      <stop offset="0" stop-color="#22384B" />
+      <stop offset="0.4494814" stop-color="#29A9EA" />
+      <stop offset="1" stop-color="#3A7FD8" />
+    </linearGradient>
+    <filter filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB" id="filter_1">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+      <feOffset dx="0" dy="2" />
+      <feGaussianBlur stdDeviation="2" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5019608 0" />
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect0_dropShadow" />
+      <feBlend mode="normal" in="SourceGraphic" in2="effect0_dropShadow" result="shape" />
+    </filter>
+  </defs>
+  <g id="Group" transform="translate(1.7999878 1.800003)">
+    <path d="M58 116C90.0325 116 116 90.0325 116 58C116 25.9675 90.0325 0 58 0C25.9675 0 0 25.9675 0 58C0 90.0325 25.9675 116 58 116Z" transform="translate(13 13)" id="Oval" fill="#D8D8D8" fill-opacity="0.35149273" fill-rule="evenodd" stroke="none" />
+    <path d="M71 142C110.212 142 142 110.212 142 71C142 31.7878 110.212 0 71 0C31.7878 0 0 31.7878 0 71C0 110.212 31.7878 142 71 142Z" id="Oval" fill="#D8D8D8" fill-opacity="0.15862165" fill-rule="evenodd" stroke="none" />
+    <path d="M40.5 81C62.8675 81 81 62.8675 81 40.5C81 18.1325 62.8675 0 40.5 0C18.1325 0 0 18.1325 0 40.5C0 62.8675 18.1325 81 40.5 81Z" transform="translate(30 31)" id="Oval" fill="#ECECEC" fill-opacity="0.2679269" fill-rule="evenodd" stroke="none" />
+    <path d="M28 56C43.464 56 56 43.464 56 28C56 12.536 43.464 0 28 0C12.536 0 0 12.536 0 28C0 43.464 12.536 56 28 56Z" transform="translate(43 44)" id="Oval" fill="url(#gradient_1)" fill-opacity="0.6405785" fill-rule="evenodd" stroke="none" />
+    <path d="M13.5 27C20.9558 27 27 20.9558 27 13.5C27 6.04416 20.9558 0 13.5 0C6.04416 0 0 6.04416 0 13.5C0 20.9558 6.04416 27 13.5 27Z" transform="translate(58 57)" id="Oval" fill="#FFFFFF" fill-rule="evenodd" stroke="none" filter="url(#filter_1)" />
+    <g id="commande" transform="translate(63 62)">
+      <g id="comande">
+        <path d="M8.5 17C13.1944 17 17 13.1944 17 8.5C17 3.80558 13.1944 0 8.5 0C3.80558 0 0 3.80558 0 8.5C0 13.1944 3.80558 17 8.5 17Z" id="Oval" fill="url(#gradient_2)" fill-rule="evenodd" stroke="none" />
+        <g id="Group-3" transform="translate(4 4.3333335)">
+          <path d="M2.57143 5.03226C3.99159 5.03226 5.14286 3.90575 5.14286 2.51613C5.14286 1.12651 3.99159 0 2.57143 0C1.15127 0 0 1.12651 0 2.51613C0 3.90575 1.15127 5.03226 2.57143 5.03226Z" id="Oval" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+          <path d="M0.357143 0.698925C0.554387 0.698925 0.714286 0.542465 0.714286 0.349462C0.714286 0.15646 0.554387 0 0.357143 0C0.159898 0 0 0.15646 0 0.349462C0 0.542465 0.159898 0.698925 0.357143 0.698925Z" transform="translate(4.857143 4.7526884)" id="Oval" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.5" />
+          <path d="M0.357143 0.698925C0.554387 0.698925 0.714286 0.542465 0.714286 0.349462C0.714286 0.15646 0.554387 0 0.357143 0C0.159898 0 0 0.15646 0 0.349462C0 0.542465 0.159898 0.698925 0.357143 0.698925Z" transform="translate(5.714286 5.591398)" id="Oval" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.5" />
+          <path d="M1.21429 2.37634C1.88492 2.37634 2.42857 1.84438 2.42857 1.18817C2.42857 0.531963 1.88492 0 1.21429 0C0.543654 0 0 0.531963 0 1.18817C0 1.84438 0.543654 2.37634 1.21429 2.37634Z" transform="translate(6.571429 6.290323)" id="Oval" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.756" />
+          <path d="M1.28571 2.51613C1.99579 2.51613 2.57143 1.95287 2.57143 1.25806C2.57143 0.563255 1.99579 0 1.28571 0C0.575634 0 0 0.563255 0 1.25806C0 1.95287 0.575634 2.51613 1.28571 2.51613Z" transform="translate(1.2857143 1.2580645)" id="Oval" fill="none" fill-rule="evenodd" stroke="#2E9CE4" stroke-width="0.756" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

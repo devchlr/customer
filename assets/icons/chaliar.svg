@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="22px" height="21px" viewBox="0 0 22 21" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M0 17.4928L0 20.2727L22 20.2727L22 17.4928C22 13.74 14.7125 11.9331 11 11.9331C7.2875 11.9331 0 13.74 0 17.4928ZM11 9.76344C13.7225 9.76344 15.95 7.56667 15.95 4.88172C15.95 2.19677 13.7225 0 11 0C8.2775 0 6.05 2.19677 6.05 4.88172C6.05 7.56667 8.2775 9.76344 11 9.76344L11 9.76344Z" id="path_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#path_1" />
+    </clipPath>
+  </defs>
+  <g id="Group">
+    <g id="porfil">
+      <g id="profil">
+        <g clip-path="url(#clip_1)">
+          <use xlink:href="#path_1" fill="none" stroke="#A7C2DD" stroke-width="3.2" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="57px" height="57px" viewBox="0 0 57 57" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient x1="1.2200848" y1="0.8457925" x2="0.060300402" y2="0.03804589" id="gradient_1">
+      <stop offset="0" stop-color="#22384B" />
+      <stop offset="0.4494814" stop-color="#29A9EA" />
+      <stop offset="1" stop-color="#3A7FD8" />
+    </linearGradient>
+  </defs>
+  <g id="commande" transform="translate(3 3)">
+    <g id="comande">
+      <path d="M25.5 51C39.5833 51 51 39.5833 51 25.5C51 11.4167 39.5833 0 25.5 0C11.4167 0 0 11.4167 0 25.5C0 39.5833 11.4167 51 25.5 51Z" id="Oval" fill="url(#gradient_1)" fill-rule="evenodd" stroke="#EBF3FB" stroke-width="6" />
+      <g id="Group-3" transform="translate(12 13)">
+        <path d="M7.71429 15.0968C11.9748 15.0968 15.4286 11.7172 15.4286 7.54839C15.4286 3.37953 11.9748 0 7.71429 0C3.4538 0 0 3.37953 0 7.54839C0 11.7172 3.4538 15.0968 7.71429 15.0968Z" id="Oval" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+        <path d="M1.07143 2.09677C1.66316 2.09677 2.14286 1.6274 2.14286 1.04839C2.14286 0.469379 1.66316 0 1.07143 0C0.479695 0 0 0.469379 0 1.04839C0 1.6274 0.479695 2.09677 1.07143 2.09677Z" transform="translate(14.571428 14.258064)" id="Oval" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.5" />
+        <path d="M1.07143 2.09677C1.66316 2.09677 2.14286 1.6274 2.14286 1.04839C2.14286 0.469379 1.66316 0 1.07143 0C0.479695 0 0 0.469379 0 1.04839C0 1.6274 0.479695 2.09677 1.07143 2.09677Z" transform="translate(17.142857 16.774193)" id="Oval" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.5" />
+        <path d="M3.64286 7.12903C5.65475 7.12903 7.28571 5.53314 7.28571 3.56452C7.28571 1.59589 5.65475 0 3.64286 0C1.63096 0 0 1.59589 0 3.56452C0 5.53314 1.63096 7.12903 3.64286 7.12903Z" transform="translate(19.714285 18.870968)" id="Oval" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="1.26" />
+        <path d="M3.85714 7.54839C5.98738 7.54839 7.71429 5.85862 7.71429 3.77419C7.71429 1.68976 5.98738 0 3.85714 0C1.7269 0 0 1.68976 0 3.77419C0 5.85862 1.7269 7.54839 3.85714 7.54839Z" transform="translate(3.857143 3.7741935)" id="Oval" fill="none" fill-rule="evenodd" stroke="#2E9CE4" stroke-width="1.26" />
+      </g>
+    </g>
+  </g>
+</svg>

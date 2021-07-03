@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="15px" height="8px" viewBox="0 0 15 8" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M0 0L11 0L11 1L0 1L0 0Z" transform="translate(1 0)" id="path_1" />
+    <path d="M0 0L11 0L11 4L0 4L0 0Z" transform="translate(1 2)" id="path_2" />
+  </defs>
+  <g id="icon-CB" transform="translate(1 1)">
+    <g id="Rectangle-235">
+      <use xlink:href="#path_1" fill="none" stroke="#443F7F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <g id="Rectangle-235-Copy">
+      <use xlink:href="#path_2" fill="none" stroke="#443F7F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <path d="M0 0L13 0L13 1L0 1L0 0Z" transform="translate(0 1)" id="Rectangle-237" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+  </g>
+</svg>

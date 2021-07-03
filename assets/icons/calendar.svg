@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <g id="calendar" transform="translate(0.5 0.5)">
+    <path d="M0.540597 0C0.242948 0 5.32907e-15 0.212432 5.32907e-15 0.47317L5.32907e-15 2.33764C5.32907e-15 2.59941 0.242948 2.8114 0.540597 2.8114C0.840273 2.8114 1.08255 2.59956 1.08255 2.33764L1.08255 0.47317C1.08255 0.212284 0.840273 0 0.540597 0Z" transform="translate(9.193363 0.120545454)" id="Shape" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+    <path d="M11.3959 0L10.6624 0L10.6624 0.793443C10.6624 1.26839 10.2215 1.65469 9.67757 1.65469C9.13579 1.65469 8.69447 1.26839 8.69447 0.793443L8.69447 0L4.21386 0L4.21386 0.793443C4.21386 1.26839 3.77321 1.65469 3.23075 1.65469C2.6883 1.65469 2.24664 1.26839 2.24664 0.793443L2.24664 0L1.51155 0C0.677013 0 0.000506493 0.5915 -2.84217e-14 1.32216L-2.84217e-14 10.0032C0.000506493 10.7331 0.676 11.3249 1.51155 11.3254L11.3959 11.3254C12.2303 11.3249 12.9061 10.7331 12.9071 10.0032L12.9071 1.32201C12.9061 0.591352 12.2303 0.000295455 11.3959 0L11.3959 0ZM11.6559 10.0031C11.6559 10.1279 11.5384 10.2309 11.3959 10.2309L1.51155 10.2309C1.36787 10.2309 1.25121 10.1279 1.2507 10.0031L1.2507 3.05781L11.6559 3.05781L11.6559 10.0031L11.6559 10.0031Z" transform="translate(0.05638961 1.6647387)" id="Shape" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+    <path d="M1.08221 0.47317C1.08221 0.212284 0.839429 0 0.541273 0C0.241597 0 2.08722e-14 0.212432 2.08722e-14 0.47317L2.08722e-14 2.33764C2.08722e-14 2.59941 0.241597 2.8114 0.541273 2.8114C0.839429 2.8114 1.08221 2.59956 1.08221 2.33764L1.08221 0.47317L1.08221 0.47317Z" transform="translate(2.74587 0.120545454)" id="Shape" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+    <g id="Group" transform="translate(2.5324676 5.465909)">
+      <path d="M-3.28626e-14 0L1.50287 0L1.50287 1.36523L-3.28626e-14 1.36523L-3.28626e-14 0Z" transform="translate(6.6659064 0.07607955)" id="Rectangle-path" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+      <path d="M3.01981e-14 0L1.50176 0L1.50176 1.36523L3.01981e-14 1.36523L3.01981e-14 0Z" transform="translate(4.4665456 0.07607955)" id="Rectangle-path" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+      <path d="M-3.28626e-14 0L1.50287 0L1.50287 1.36523L-3.28626e-14 1.36523L-3.28626e-14 0Z" transform="translate(6.6659064 1.9794986)" id="Rectangle-path" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+      <path d="M3.01981e-14 0L1.50176 0L1.50176 1.36523L3.01981e-14 1.36523L3.01981e-14 0Z" transform="translate(4.4665456 1.9794986)" id="Rectangle-path" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+      <path d="M3.77476e-14 0L1.50287 0L1.50287 1.36523L3.77476e-14 1.36523L3.77476e-14 0Z" transform="translate(2.2674077 1.9794986)" id="Rectangle-path" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+      <path d="M3.39867e-14 0L1.50376 0L1.50376 1.36523L3.39867e-14 1.36523L3.39867e-14 0Z" transform="translate(0.06871428 1.9794986)" id="Rectangle-path" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+      <path d="M-3.28626e-14 0L1.50287 0L1.50287 1.36523L-3.28626e-14 1.36523L-3.28626e-14 0Z" transform="translate(6.6659064 3.9794986)" id="Rectangle-path-Copy-4" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+      <path d="M3.01981e-14 0L1.50176 0L1.50176 1.36523L3.01981e-14 1.36523L3.01981e-14 0Z" transform="translate(4.4665456 3.9794986)" id="Rectangle-path-Copy-3" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+      <path d="M3.77476e-14 0L1.50287 0L1.50287 1.36523L3.77476e-14 1.36523L3.77476e-14 0Z" transform="translate(2.2674077 3.9794986)" id="Rectangle-path-Copy-2" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+      <path d="M3.39867e-14 0L1.50376 0L1.50376 1.36523L3.39867e-14 1.36523L3.39867e-14 0Z" transform="translate(0.06871428 3.9794986)" id="Rectangle-path-Copy" fill="#443F7F" fill-rule="evenodd" stroke="none" />
+    </g>
+  </g>
+</svg>
