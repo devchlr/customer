@@ -1,20 +1,10 @@
-// import 'package:client_chaliar/ui/views/auth/inscription/register_screen.dart';
-// import 'package:client_chaliar/ui/views/auth/phone_opt/phone_number_input.dart';
-// import 'package:client_chaliar/ui/views/auth/preCondition_screen.dart';
-// import 'package:client_chaliar/ui/views/commande/add_photo_screen.dart';
-// import 'package:client_chaliar/ui/views/commande/formulaire/arrive_form_screen.dart';
-// import 'package:client_chaliar/ui/views/commande/formulaire/depart_form_screen.dart';
-// import 'package:client_chaliar/ui/views/commande/formulaire/take_picture.dart';
-// import 'package:client_chaliar/ui/views/commande/pre_commande_screen.dart';
-// import 'package:client_chaliar/ui/views/commande/taille_colli_screen.dart';
-// import 'package:client_chaliar/ui/views/commande1.dart';
-// import 'package:client_chaliar/ui/views/faq/faq_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_app/ui/views/authentifications/authentification_screen.dart';
+import 'package:flutter_app/ui/views/authentifications/conditionnal_term.dart';
 import 'package:flutter_app/ui/views/course/home_course.dart';
 import 'package:flutter_app/ui/views/facture/home_facturation.dart';
 import 'package:flutter_app/ui/views/message/home_message.dart';
@@ -32,8 +22,11 @@ import 'package:flutter_app/ui/views/orders/form/depart_order_form.dart';
 import 'package:flutter_app/ui/views/orders/form/package_information_screen.dart';
 import 'package:flutter_app/ui/views/orders/form/resume_order_screen.dart';
 import 'package:flutter_app/ui/views/orders/home_order_screen.dart';
+import 'package:flutter_app/ui/views/orders/order_live_tracking_screen.dart';
+import 'package:flutter_app/ui/views/orders/order_recapt.dart';
 import 'package:flutter_app/ui/views/orders/order_scanning.dart';
 import 'package:flutter_app/ui/views/orders/order_tracking.dart';
+import 'package:flutter_app/ui/views/orders/order_validate_screen.dart';
 import 'package:flutter_app/ui/views/profile/annexe/add_payment_method_screen.dart';
 import 'package:flutter_app/ui/views/profile/annexe/edit_profile_screen.dart';
 import 'package:flutter_app/ui/views/profile/annexe/payment_method_screen.dart';
@@ -70,14 +63,14 @@ class MyApp extends StatelessWidget {
       debugShowMaterialGrid: false,
       debugShowCheckedModeBanner: false,
       initialRoute: "/splash",
-      title: 'Chaliar',
+      title: 'Chaliar_Livreur',
       theme: ThemeData(
           // primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           unselectedWidgetColor: Colors.grey,
           disabledColor: Colors.grey),
       routes: <String, WidgetBuilder>{
-        "/splash": (BuildContext context) => new SplashScreen(),
+        "/splash": (BuildContext context) => new PreCommandeScreen(),
         "/tuto": (BuildContext context) => new OnboardingScreen(),
         "/connexion": (BuildContext context) => new ConnexionScreen(),
         "/pro_particulier": (BuildContext context) =>
@@ -103,6 +96,9 @@ class MyApp extends StatelessWidget {
         "/about": (BuildContext context) => new AboutScreen(),
         "/term_condition": (BuildContext context) => new TermConditionScreen(),
         "/home_course":(BuildContext context)=>new HomeCourseScreen(),
+         "/order_validate":(BuildContext context)=>new OrderValidateScreen(),
+        "/recapt_order":(BuildContext context)=>new OrderRecaptScreen(),
+        "/order_live_tracking":(BuildContext context)=>new OrderLiveTrackingScreen(),
       },
     );
   }

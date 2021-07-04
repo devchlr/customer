@@ -8,7 +8,8 @@ class CustomHearder extends StatelessWidget {
   final Color? textColor;
   final String? fontFamily;
   final String? description;
-  const CustomHearder({Key? key,this.title,this.size=18.0,this.textColor=Colors.white,this.fontFamily=AppFontFamilly.montserrat,this.description=''}) : super(key: key);
+  final bool? isRed;
+  const CustomHearder({Key? key,this.isRed=false,this.title,this.size=18.0,this.textColor=Colors.white,this.fontFamily=AppFontFamilly.montserrat,this.description=''}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class CustomHearder extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.transparent,
           image: DecorationImage(
-            image: AssetImage("assets/images/header.png"),
+            image: isRed==true?AssetImage("assets/images/header.png"):AssetImage("assets/images/header.png"),
             fit: BoxFit.fill,
           ),
         ),

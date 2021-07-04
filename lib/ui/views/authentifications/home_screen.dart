@@ -74,7 +74,7 @@ class ConnexionScreen extends StatelessWidget {
                                 height: 41,
                               ),
                               Text(
-                                "Commandez un \ntransporteur",
+                                "Livrez et gagnez de\nl’argent",
                                 textAlign: TextAlign.center,
                                 style:
                                 AppTextStyle.headerApp1(color: ChaliarColors.whiteColor),
@@ -91,14 +91,14 @@ class ConnexionScreen extends StatelessWidget {
                           ),
                       Padding(
                           padding: EdgeInsets.only(
-                            right: 50,
+                            right: 0,
                             top: 20,
-                            bottom: 26//Image.asset('assets/images/delivery_courier.png')
+                           //Image.asset('assets/images/delivery_courier.png')
                           ),
                           child: Center(
                             child: Container(
-                              height: 300,
-                              width: 190,
+                              height: 355,
+                              width: 355,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image:AssetImage('assets/images/delivery_courier.png'),

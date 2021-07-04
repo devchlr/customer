@@ -43,13 +43,6 @@ class _OrderScanScreenState extends State<OrderScanScreen> {
     return
       Scaffold(
         backgroundColor: Color(0xffF3F3F3),
-        // appBar: ChaliarMenu.topBar(
-        //     title: 'Commande',
-        //     bgColor: Color(0xffF3F3F3),
-        //     imageBackground: 'assets/images/header.png'
-        // ),
-        //  bottomNavigationBar:
-        // ,
         body: Stack(
           children: [
             Column(
@@ -57,68 +50,6 @@ class _OrderScanScreenState extends State<OrderScanScreen> {
               children: [
                 Container(
                   height: 90,
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                      left: 10.0,
-                      right: 10.0,
-                      top: 10.0
-                  ),
-                  height: MediaQuery.of(context).size.height * 0.2,
-                  decoration: BoxDecoration(
-                    color: Color(0xffF3F3F3),
-                  ),
-                  child: ListView(
-                    children: [
-                      GestureDetector(
-                        onTap:()=>Navigator.pushNamed(context, '/commande_depart_form'),
-                        child: TimelineTile(
-                          nodeAlign: TimelineNodeAlign.start,
-                          contents: Card(
-                            child: Container(
-                              height: 44.1,
-                              width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.all(10.0),
-                              child: Text('12 Avenue de Paris , 94220 Charenton le Pont',style: AppTextStyle.captionPreCommande(color:ChaliarColors.secondaryColors),),
-                            ),
-                          ),
-                          node: TimelineNode(
-                            indicator: DotIndicator(
-
-                            ),
-                            endConnector: DashedLineConnector(),
-                          ),
-                        ),
-                      ),
-                      GestureDetector(onTap:()=>Navigator.pushNamed(context, '/commande_depart_form'),child: Container(
-                        margin: EdgeInsets.only(
-                            left: 3.0
-                        ),
-                        child: TimelineTile(
-                          nodeAlign: TimelineNodeAlign.start,
-                          contents: Card(
-                            child: Container(
-                              color: ChaliarColors.whiteGreyColor,
-                              height: 44.10,
-                              width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.all(12.0),
-                              child: Text('39 Rue de Wagram , 75017 Paris',style: AppTextStyle.captionPreCommande(color:ChaliarColors.secondaryColors),),
-                            ),
-                          ),
-                          node: TimelineNode(
-                            indicator: ContainerIndicator(
-                              child: Container(
-                                height: 9.0,
-                                width: 9.0,
-                                color: Color(0xff3885DA),
-                              ),
-                            ),
-                            startConnector: DashedLineConnector(),
-                          ),
-                        ),
-                      ),)
-                    ],
-                  ),
                 ),
                 Expanded(
                   flex: 1,
@@ -139,14 +70,6 @@ class _OrderScanScreenState extends State<OrderScanScreen> {
               children: [
                 Container(
                   height: 90,
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                      left: 10.0,
-                      right: 10.0,
-                      top: 10.0
-                  ),
-                  height: MediaQuery.of(context).size.height * 0.2,
                 ),
                 Expanded(
                   flex: 1,
@@ -178,7 +101,7 @@ class _OrderScanScreenState extends State<OrderScanScreen> {
                   ),SizedBox(
                     height: 25,
                   ),
-                  Text('Recherche d’un chaliar …',style: AppTextStyle.appBarHeader(
+                  Text('Recherche d’une course …',style: AppTextStyle.appBarHeader(
                     size: 16,
                     color: Color(0xffffffff),
                     fontWeight: FontWeight.w400

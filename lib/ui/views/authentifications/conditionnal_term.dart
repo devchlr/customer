@@ -60,99 +60,97 @@ class _ConditionGeneraleScreenState extends State<ConditionGeneraleScreen> {
                     ),
                     ListView(
                       children: [
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                height: 35.0,
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 35.0,
+                            ),
+                            Center(
+                              child: SvgPicture.asset(
+                                "assets/images/logo.svg",
+                                height: 120,
+                                width: 120,
                               ),
-                              Center(
-                                child: SvgPicture.asset(
-                                  "assets/images/logo.svg",
-                                  height: 120,
-                                  width: 120,
-                                ),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.05,
+                            ),
+                            Text.rich(
+                              TextSpan(
+                                text: "Bienvenue ${widget.user?.surname},",
+                                style: AppTextStyle.headerApp1(color: ChaliarColors.whiteColor),
                               ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height * 0.05,
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.02,
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(
+                                  left: MediaQuery.of(context).size.width * 0.132,
+                                  right: MediaQuery.of(context).size.width * 0.132),
+                              child: Text(
+                                "Livrez des colis dans toute la France en temps réel, ou sur rdv",
+                                textAlign: TextAlign.center,
+                                style: AppTextStyle.bodyApp1(
+                                    color: ChaliarColors.whiteColor),
                               ),
-                              Text.rich(
-                                TextSpan(
-                                  text: "Bienvenue ${widget.user?.surname},",
-                                  style: AppTextStyle.headerApp1(color: ChaliarColors.whiteColor),
-                                ),
+                            ),
+                            Center(
+                              child: SvgPicture.asset(
+                                "assets/images/super_fast_delivery_man_fly.svg",
+                                height: 300,
+                                width: 150,
                               ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height * 0.02,
-                              ),
-                              Container(
-                                padding: EdgeInsets.only(
-                                    left: MediaQuery.of(context).size.width * 0.132,
-                                    right: MediaQuery.of(context).size.width * 0.132),
-                                child: Text(
-                                  "Faites-vous livrer vos colis dans toute la France en temps réel, ou sur rdv",
-                                  textAlign: TextAlign.center,
-                                  style: AppTextStyle.bodyApp1(
-                                      color: ChaliarColors.whiteColor),
-                                ),
-                              ),
-                              Center(
-                                child: SvgPicture.asset(
-                                  "assets/images/super_fast_delivery_man_fly.svg",
-                                  height: 300,
-                                  width: 150,
-                                ),
-                              ),
-                              Padding(padding: EdgeInsets.only(
-                                  left: MediaQuery.of(context).size.width * 0.07,
-                                  right: MediaQuery.of(context).size.width * 0.07),
-                                child: Center(
-                                  child: ListTile(
-                                      leading: Radio(
-                                        activeColor: ChaliarColors.primaryColors,
-                                        value: 'accepted',
-                                        groupValue: 'accepted',
-                                        onChanged: (value) {},
-                                      ),
-                                      title: Align(
-                                        alignment: Alignment(- MediaQuery.of(context).size.width * 0.007, 0),
-                                        child:GestureDetector(
-                                          onTap: () {
-                                            Navigator.pushNamed(context, '/term_condition');
-                                          },
-                                          child: Text(
-                                            'Vous acceptez nos conditions générales\nd\'utilisations',
-                                            textAlign: TextAlign.left,
-                                            style: AppTextStyle.bodyApp1(
-                                                color: ChaliarColors.blackColor,isUnderlined:true),
-                                          ),
+                            ),
+                            Padding(padding: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.width * 0.07,
+                                right: MediaQuery.of(context).size.width * 0.07),
+                              child: Center(
+                                child: ListTile(
+                                    leading: Radio(
+                                      activeColor: ChaliarColors.primaryColors,
+                                      value: 'accepted',
+                                      groupValue: 'accepted',
+                                      onChanged: (value) {},
+                                    ),
+                                    title: Align(
+                                      alignment: Alignment(- MediaQuery.of(context).size.width * 0.007, 0),
+                                      child:GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(context, '/term_condition');
+                                        },
+                                        child: Text(
+                                          'Vous acceptez nos conditions générales\nd\'utilisations',
+                                          textAlign: TextAlign.left,
+                                          style: AppTextStyle.bodyApp1(
+                                              color: ChaliarColors.blackColor,isUnderlined:true),
                                         ),
-                                      )),
-                                ),),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height * 0.01,
+                                      ),
+                                    )),
+                              ),),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.01,
+                            ),
+                            Center(
+                              child: ButtonChaliar(
+                                onTap: () => Navigator.pushReplacementNamed(
+                                    context, '/pre_commande'),
+                                buttonText: 'C\'est parti',
+                                height: MediaQuery.of(context).size.height * 0.06,
+                                mediaQueryWidth: 0.25,
+                                borderRaduis: 40,
+                                backgroundcolor: ChaliarColors.primaryColors,
+                                bordercolor: ChaliarColors.primaryColors,
+                                textStyle: AppTextStyle.button(
+                                    color: ChaliarColors.whiteColor),
                               ),
-                              Center(
-                                child: ButtonChaliar(
-                                  onTap: () => Navigator.pushReplacementNamed(
-                                      context, '/pre_commande'),
-                                  buttonText: 'C\'est parti',
-                                  height: MediaQuery.of(context).size.height * 0.06,
-                                  mediaQueryWidth: 0.25,
-                                  borderRaduis: 40,
-                                  backgroundcolor: ChaliarColors.primaryColors,
-                                  bordercolor: ChaliarColors.primaryColors,
-                                  textStyle: AppTextStyle.button(
-                                      color: ChaliarColors.whiteColor),
-                                ),
-                              ),
-                              SizedBox(
-                                height:91,
-                              ),
-                            ],
-                          ),
+                            ),
+                            SizedBox(
+                              height:91,
+                            ),
+                          ],
                         ),
                       ],
                     )

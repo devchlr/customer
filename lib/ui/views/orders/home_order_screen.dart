@@ -57,67 +57,6 @@ class _PreCommandeScreenState extends State<PreCommandeScreen> {
               children: [
                 SizedBox(
                   height: 110,),
-                Container(
-                  margin: EdgeInsets.only(
-                      left: 10.0,
-                      right: 10.0,
-                  ),
-                  height: MediaQuery.of(context).size.height * 0.2,
-                  decoration: BoxDecoration(
-                    color: Color(0xffF3F3F3),
-                  ),
-                  child: ListView(
-                    children: [
-                      GestureDetector(
-                        onTap:()=>Navigator.pushNamed(context, '/commande_depart_form'),
-                        child: TimelineTile(
-                          nodeAlign: TimelineNodeAlign.start,
-                          contents: Card(
-                            child: Container(
-                              height: 44.1,
-                              width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.all(10.0),
-                              child: Text('Position de départ du colis',style: AppTextStyle.captionPreCommande(color:ChaliarColors.secondaryColors),),
-                            ),
-                          ),
-                          node: TimelineNode(
-                            indicator: DotIndicator(
-
-                            ),
-                            endConnector: DashedLineConnector(),
-                          ),
-                        ),
-                      ),
-                      GestureDetector(onTap:()=>Navigator.pushNamed(context, '/commande_depart_form'),child: Container(
-                        margin: EdgeInsets.only(
-                            left: 3.0
-                        ),
-                        child: TimelineTile(
-                          nodeAlign: TimelineNodeAlign.start,
-                          contents: Card(
-                            child: Container(
-                              color: ChaliarColors.whiteGreyColor,
-                              height: 44.10,
-                              width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.all(10.0),
-                              child: Text('Position de d\'arrive du colis',style: AppTextStyle.captionPreCommande(color:ChaliarColors.secondaryColors),),
-                            ),
-                          ),
-                          node: TimelineNode(
-                            indicator: ContainerIndicator(
-                              child: Container(
-                                height: 9.0,
-                                width: 9.0,
-                                color: Color(0xff3885DA),
-                              ),
-                            ),
-                            startConnector: DashedLineConnector(),
-                          ),
-                        ),
-                      ),)
-                    ],
-                  ),
-                ),
                 Expanded(
                   flex: 1,
                   child:  Container(
@@ -138,22 +77,19 @@ class _PreCommandeScreenState extends State<PreCommandeScreen> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.6,
+                top: MediaQuery.of(context).size.height * 0.4,
               ),
               child:
               Center(
-                child: ButtonChaliar(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/commande_depart_form');
-                    },
-                    buttonText: 'Commander',
-                    height:49,
-                    mediaQueryWidth: 0.25,
-                    borderRaduis: 30,
-                    backgroundcolor: ChaliarColors.primaryColors,
-                    bordercolor: ChaliarColors.primaryColors,
-                    textStyle: AppTextStyle.button(
-                        color: ChaliarColors.whiteColor)),
+                child:
+                GestureDetector(
+                  onTap:(){ Navigator.pushNamed(context, '/order_scaning');},
+                  child: CircleAvatar(
+                    backgroundColor: Colors.transparent,
+                    backgroundImage: AssetImage('assets/images/go_btn.png'),
+                    radius: 60,
+                  ),
+                ),
               ),
             ),
             Padding(padding: EdgeInsets.only(

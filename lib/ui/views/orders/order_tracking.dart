@@ -48,67 +48,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                 Container(
                   height: 110,
                 ),
-                Container(
-                  margin: EdgeInsets.only(
-                      left: 10.0,
-                      right: 10.0,
-                  ),
-                  height: MediaQuery.of(context).size.height * 0.2,
-                  decoration: BoxDecoration(
-                    color: Color(0xffF3F3F3),
-                  ),
-                  child: ListView(
-                    children: [
-                      GestureDetector(
-                        onTap:()=>Navigator.pushNamed(context, '/commande_depart_form'),
-                        child: TimelineTile(
-                          nodeAlign: TimelineNodeAlign.start,
-                          contents: Card(
-                            child: Container(
-                              height: 44.1,
-                              width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.all(10.0),
-                              child: Text('12 Avenue de Paris , 94220 Charenton le Pont',style: AppTextStyle.captionPreCommande(color:ChaliarColors.secondaryColors),),
-                            ),
-                          ),
-                          node: TimelineNode(
-                            indicator: DotIndicator(
-
-                            ),
-                            endConnector: DashedLineConnector(),
-                          ),
-                        ),
-                      ),
-                      GestureDetector(onTap:()=>Navigator.pushNamed(context, '/commande_depart_form'),child: Container(
-                        margin: EdgeInsets.only(
-                            left: 3.0
-                        ),
-                        child: TimelineTile(
-                          nodeAlign: TimelineNodeAlign.start,
-                          contents: Card(
-                            child: Container(
-                              color: ChaliarColors.whiteGreyColor,
-                              height: 44.10,
-                              width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.all(12.0),
-                              child: Text('39 Rue de Wagram , 75017 Paris',style: AppTextStyle.captionPreCommande(color:ChaliarColors.secondaryColors),),
-                            ),
-                          ),
-                          node: TimelineNode(
-                            indicator: ContainerIndicator(
-                              child: Container(
-                                height: 9.0,
-                                width: 9.0,
-                                color: Color(0xff3885DA),
-                              ),
-                            ),
-                            startConnector: DashedLineConnector(),
-                          ),
-                        ),
-                      ),)
-                    ],
-                  ),
-                ),
                 Expanded(
                   child:  Container(
                     child: GoogleMap(
@@ -124,7 +63,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.7,
+                top: MediaQuery.of(context).size.height * 0.45,
               ),
               child: Card(
                 shape: RoundedRectangleBorder(
@@ -135,7 +74,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                 elevation: 1,
                 child: Container(
                   color: Color(0xffffffff),
-                  height: 250,
+                  height: 406,
                   width: MediaQuery.of(context).size.width,
                   padding: EdgeInsets.only(
                   ),
@@ -146,29 +85,69 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                   child: ListView(
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text('Votre livreur arrive dans 5 min',style: AppTextStyle.appBarHeader(
+                          Text('29 Janvier 2021 à 16:00',style: AppTextStyle.appBarHeader(
                             color: Color(0xff222B45),
-                            size: 9.8,
+                            size: 16.8,
                             fontWeight: FontWeight.w400
-                          ),),
-                          Text('Annnuler la course',style: AppTextStyle.appBarHeader(
-                              color: Color(0xff222B45),
-                              size: 9.8,
-                              fontWeight: FontWeight.w400
                           ),),
                         ],
                       ),
                       SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        height: 2,
-                        color: ChaliarColors.whiteGreyColor,
+                        height: 35                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                         Row(
+                           mainAxisAlignment: MainAxisAlignment.start,
+                           children: [
+                             Container(
+                               height: 90,
+                               width: 10,
+                               decoration: BoxDecoration(
+                                 color: Colors.white,
+                                 image: DecorationImage(
+                                   image: AssetImage("assets/images/timeLine.png"),
+                                   fit: BoxFit.fill,
+                                 ),
+                               ),
+                             ),
+                             SizedBox(
+                               width: 20,
+                             ),
+                             Container(
+                               height: 100,
+                               child: Column(
+                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                 children: [
+                                   Text('38 Avenue du Château, 94300 Vincennes',style: AppTextStyle.appBarHeader(
+                                       color: Color(0xff042C5C),
+                                       size: 9.64,
+                                       fontWeight: FontWeight.w400
+                                   ),),
+                                   SizedBox(
+                                     height: 55,
+                                   ),
+                                   Text('97 Rue de Paris, 94220 Charenton le Pont',style: AppTextStyle.appBarHeader(
+                                       color: Color(0xff042C5C),
+                                       size: 8.64,
+                                       fontWeight: FontWeight.w400
+                                   ),),
+                                 ],
+                               ),
+                             ),
+                           ],
+                         )
+                        ],
                       ),
                       SizedBox(
                         height: 15,
+                      ),
+                      Container(
+                        height: 2,
+                        width: MediaQuery.of(context).size.width,
+                        color: ChaliarColors.whiteGreyColor,
                       ),
                       Container(
                          height: 95,
@@ -194,13 +173,16 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                                  Column(
                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                    children: [
+                                     SizedBox(
+                                       height: 10,
+                                     ),
                                      Text('Evan Guzman',style: AppTextStyle.appBarHeader(
                                        color: Color(0xff222B45),
                                        size: 10.8,
                                        fontWeight: FontWeight.w400,
                                      ),),
                                      Row(
-                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                       mainAxisAlignment: MainAxisAlignment.start,
                                        children: [
                                          SvgPicture.asset(
                                            SvgIcons.start,
@@ -210,69 +192,40 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                                          SizedBox(
                                            width: 5,
                                          ),
-                                         Text('Evan Guzman',style: AppTextStyle.appBarHeader(
+                                         Text('4,8',style: AppTextStyle.appBarHeader(
                                            color: Color(0xff222B45),
                                            size: 7.92,
                                            fontWeight: FontWeight.w400,
                                          ),),
+                                         SizedBox(
+                                           width: 35,
+                                         ),
                                        ],
                                      ),
-                                     Row(
-                                       children: [
-                                         SvgPicture.asset(
-                                           SvgIcons.pin,
-                                           height: 13,
-                                           width: 12,
-                                         ),
-                                         SizedBox(
-                                           width: 5,
-                                         ),
-                                         Text('8 courses',style: AppTextStyle.appBarHeader(
-                                           color: Color(0xff222B45),
-                                           size: 7.92,
-                                           fontWeight: FontWeight.w400,
-                                         ),),
-                                         SizedBox(
-                                           width: 11,
-                                         )
-                                       ],
+                                     SizedBox(
+                                       height: 10,
                                      ),
                                    ],
                                  )
                                ],
                              ),
                              Column(
-                               mainAxisAlignment: MainAxisAlignment.start,
+                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                children: [
-                                 Row(
-                                   mainAxisAlignment: MainAxisAlignment.start,
-                                   children: [
-                                     SvgPicture.asset(
-                                       SvgIcons.white_visa,
-                                       height: 13,
-                                       width: 12,
-                                     ),
-                                     SizedBox(
-                                       width: 5,
-                                     ),
-                                     Text('**** **** **** 7539',style: AppTextStyle.appBarHeader(
-                                       color: Color(0xff222B45),
-                                       size: 7.92,
-                                       fontWeight: FontWeight.w400,
-                                     ),),
-                                   ],
-                                 ),
                                  SizedBox(
-                                   height: 20,
+                                   height: 5,
                                  ),
-                                 Center(
-                                   child: SvgPicture.asset(
-                                     SvgIcons.scooter,
-                                     height: 36,
-                                     width: 59,
-                                     color: Color(0xff042C5C),
-                                   ),
-                                 )
+                                 Text('Un canapé',style: AppTextStyle.appBarHeader(
+                                   color: Color(0xff042C5C),
+                                   size: 13.64,
+                                   fontWeight: FontWeight.w400,
+                                 ),),
+
+                                 Text('89\n€',style: AppTextStyle.appBarHeader(
+                                   color: Color(0xff222B45),
+                                   size: 16.8,
+                                   fontWeight: FontWeight.w400,
+                                 ),),
                                ],
                              )
                            ],
@@ -291,22 +244,24 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                           Center(
                             child: ButtonChaliar(
                                 onTap: () {
-                                  Navigator.pushNamed(context, '/order_message');
+                                  Navigator.pushNamed(context, '/order_validate');
                                 },
-                                buttonText: 'Message',
+                                buttonText: 'ACCEPTER',
                                 height:49,
                                 mediaQueryWidth: 0.25,
                                 borderRaduis: 10,
-                                backgroundcolor: Color(0xff042C5C),
-                                bordercolor:  Color(0xff042C5C),
+                                backgroundcolor: Color(0xffDE335C),
+                                bordercolor:  Color(0xffDE335C),
                                 textStyle: AppTextStyle.appBarHeader(
                                   size: 8.64,
                                     color: ChaliarColors.whiteColor)),
                           ),
                           Center(
                             child: ButtonChaliar(
-                                onTap: ()=>launch("tel://21213123123"),
-                                buttonText: 'APPELER',
+                                onTap: () {
+
+                                },
+                                buttonText: 'REFUSER',
                                 height:49,
                                 mediaQueryWidth: 0.15,
                                 borderRaduis: 10,
@@ -334,6 +289,64 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                 description: '',
               ),
             ),
+            Padding(
+                padding: EdgeInsets.only(
+                  top:MediaQuery.of(context).size.height * 0.43,
+                  left:MediaQuery.of(context).size.width * 0.8,
+                  right:MediaQuery.of(context).size.width * 0,
+                ),
+                child:GestureDetector(
+                  onTap:(){
+                    print('circle clicked');
+                    setState(() {
+
+                    });
+                  },
+                  child: CircleAvatar(
+                    radius: 25.0,
+                    backgroundColor: ChaliarColors.whiteColor,
+                    child: Icon(Icons.close_outlined,color: ChaliarColors.primaryColors,),
+                  ),
+                )
+            ),
+            Padding(
+                padding: EdgeInsets.only(
+                  top:MediaQuery.of(context).size.height * 0.2,
+                  left:MediaQuery.of(context).size.width * 0.32,
+                  right:MediaQuery.of(context).size.width * 0.32,
+                ),
+                child:GestureDetector(
+                  onTap:(){
+                    print('circle clicked');
+                    setState(() {
+
+                    });
+                  },
+                  child: Container(
+                    height: 32,
+                    width: 183,
+                    decoration: BoxDecoration(
+                      color: Color(0xff042C5C),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(width: 5,),
+                          Icon(Icons.arrow_forward_outlined,color: Colors.white,),
+                          Text('Passer hors ligne',style: AppTextStyle.appBarHeader(
+                            color: Colors.white,
+                            size: 12,
+                            fontWeight: FontWeight.w400
+                          ),),
+                          SizedBox(width: 5,),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+            )
           ],
         ),
       );
