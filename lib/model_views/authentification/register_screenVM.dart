@@ -119,7 +119,7 @@ class RegisterScreenVM extends BaseModel{
   }
   void createUser(BuildContext context, String typeUser) async {
     customShowSnackBar.initUserRequestAnimation(context);
-    if (typeUser == TypeUser.particulier) {
+    if (typeUser == TypeUser.voiture) {
       if (await validatorPartInformation() == '404') {
         customShowSnackBar.initUserRequestAnimationError(context, 'Tous les champs doivent être renseignés');
       } else if (await validatorPartInformation() == '200') {
@@ -129,7 +129,7 @@ class RegisterScreenVM extends BaseModel{
         _currentUser =  UserChaliar(
           id: userCredential?.uid,
           email: email.text,
-          userRole: TypeUser.particulier,
+          userRole: TypeUser.voiture,
           name: name.text,
           surname: surname.text,
           phone: phone,
@@ -145,7 +145,7 @@ class RegisterScreenVM extends BaseModel{
                 () =>  getOPTScreen(context,phoneNumber.text,_currentUser?.id));
 
       }
-    } else if (typeUser == TypeUser.professionnel) {
+    } else if (typeUser == TypeUser.camion) {
       if (await validatorPartInformation() == '404') {
         customShowSnackBar.initUserRequestAnimationError(context, 'Tous les champs doivent être renseignés');
       } else if (await validatorPartInformation() == '200') {
@@ -155,7 +155,7 @@ class RegisterScreenVM extends BaseModel{
         _currentUser =  UserChaliar(
             id: userCredential?.uid,
             email: email.text,
-            userRole: TypeUser.professionnel,
+            userRole: TypeUser.camion,
             name: name.text,
             surname: surname.text,
             phone: phone,

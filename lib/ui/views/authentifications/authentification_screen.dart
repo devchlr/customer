@@ -1,8 +1,6 @@
 import 'package:flutter_app/models/user.dart';
 import 'package:flutter_app/ui/styles/chaliar_color.dart';
 import 'package:flutter_app/ui/styles/text_style.dart';
-// import 'package:flutter_app/ui/views/auth/condition_generale_screen.dart';
-// import 'package:flutter_app/ui/views/auth/preCondition_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/ui/widgets/button.dart';
 import 'package:flutter_app/model_views/authentification/authentificationVM.dart';

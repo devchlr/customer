@@ -55,7 +55,7 @@ class ProParticulierScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height: 212,
+                            height: 200,
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -91,33 +91,67 @@ class ProParticulierScreen extends StatelessWidget {
                                       CustomRadioListTile(
                                         radioColor: ChaliarColors.secondaryColors,
                                         onClick: (){
-                                          model.setRadioGroup(TypeUser.particulier);
+                                          model.setRadioGroup(TypeUser.velo);
                                         },
                                         width: 0.55,
                                         heigth: 0.19,
                                         raduis: 5.0,
-                                        title: 'Je suis un particulier',
+                                        title: 'J’ai un vélo',
                                         subtile:
-                                        'Je veux me faire livrer des colis personnellement',
+                                        '29€',
                                         group: model.group,
-                                        value: TypeUser.particulier,
+                                        value: TypeUser.velo,
                                       ),
                                       SizedBox(
                                         height: MediaQuery.of(context).size.height * 0.01,
                                       ),
                                       CustomRadioListTile(
                                         onClick: (){
-                                          model.setRadioGroup(TypeUser.professionnel);
+                                          model.setRadioGroup(TypeUser.scooter);
                                         },
                                         radioColor: ChaliarColors.secondaryColors,
                                         width: 0.55,
                                         heigth: 0.19,
                                         raduis: 5.0,
-                                        title: 'Je suis un professionnel',
+                                        title: 'J’ai un scooter',
                                         subtile:
-                                        'Je veux me faire livrer des colis pour ma société',
+                                        '39€',
                                         group: model.group,
-                                        value: TypeUser.professionnel,
+                                        value: TypeUser.scooter,
+                                      ),
+                                      SizedBox(
+                                        height: MediaQuery.of(context).size.height * 0.01,
+                                      ),
+                                      CustomRadioListTile(
+                                        onClick: (){
+                                          model.setRadioGroup(TypeUser.voiture);
+                                        },
+                                        radioColor: ChaliarColors.secondaryColors,
+                                        width: 0.55,
+                                        heigth: 0.19,
+                                        raduis: 5.0,
+                                        title: 'J’ai une voiture',
+                                        subtile:
+                                        '49€',
+                                        group: model.group,
+                                        value: TypeUser.voiture,
+                                      ),
+                                      SizedBox(
+                                        height: MediaQuery.of(context).size.height * 0.01,
+                                      ),
+                                      CustomRadioListTile(
+                                        onClick: (){
+                                          model.setRadioGroup(TypeUser.camion);
+                                        },
+                                        radioColor: ChaliarColors.secondaryColors,
+                                        width: 0.55,
+                                        heigth: 0.19,
+                                        raduis: 5.0,
+                                        title: 'J’ai un camion',
+                                        subtile:
+                                        '89€',
+                                        group: model.group,
+                                        value: TypeUser.camion,
                                       ),
                                       SizedBox(
                                         height:35,

@@ -130,7 +130,7 @@ class _HomeProfileScreenState extends State<HomeProfileScreen> {
                         SizedBox(
                           height: 13.0,
                         ),
-                        CustomProfileListTile(title:'Facturation',
+                        CustomProfileListTile(title:'Revenus',
                           iconAsset:SvgIcons.invoice,onTap:(){
                           model.getPageByName(context, '/home_facturation');
                           },),

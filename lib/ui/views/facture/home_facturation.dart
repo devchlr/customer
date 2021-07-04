@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/ui/styles/chaliar_color.dart';
+import 'package:flutter_app/ui/styles/chaliar_font.dart';
 import 'package:flutter_app/ui/styles/text_style.dart';
+import 'package:flutter_app/ui/widgets/button.dart';
 import 'package:flutter_app/ui/widgets/custom_botom_navigation_bar.dart';
 import 'package:flutter_app/ui/widgets/custom_header.dart';
 import 'package:timelines/timelines.dart';
@@ -20,722 +22,228 @@ class _HomeFacturationScreenState extends State<HomeFacturationScreen> {
    return Scaffold(
       body: Stack(
         children: [
-          Padding(padding: EdgeInsets.only(
-            top: 135,
-             left: MediaQuery.of(context).size.height*0.05,
-            right: MediaQuery.of(context).size.height*0.05,
-          ),
-            child: ListView(
-              children: [
-               Center(
-                 child:  Card(
-                   shape: RoundedRectangleBorder(
-                     borderRadius: const BorderRadius.all(
-                       Radius.circular(20.0),
-                     ),
-                   ),
-            child: Container(
-              height: 32,
-              width: 198,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
-              child:Center(
-                child: DropdownButton<String>(
-                  focusColor:Colors.white,
-                  value: _chosenValue,
-                  elevation: 5,
-                  style: TextStyle(color: Colors.white),
-                  iconEnabledColor:Colors.black,
-                  items: <String>[
-                    '90 derniers jours',
-                    '60 derniers jours',
-                    '30 derniers jours',
-                    '7 derniers jours',
-                  ].map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value,style:TextStyle(color:Colors.black),),
-                    );
-                  }).toList(),
-                  hint:Text(
-                    "90 derniers jours",
-                    style: AppTextStyle.appBarHeader(
-                      color: Color(0xff042C5C),
-                      size: 11,
-                      fontWeight: FontWeight.w400
-                    ),
+          Column(
+            children: [
+              Container(
+                height: 343,
+                width: MediaQuery.of(context).size.width,
+                color: Color(0xffDE335C),
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: 150,
+                    left: MediaQuery.of(context).size.height*0.05,
+                    right: MediaQuery.of(context).size.height*0.05,
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      _chosenValue = value;
-                    });
-                  },
-                ),
-              ),
-            ),
-                 ),
-               ),
-                SizedBox(
-                  height: 28,
-                ),
-                Column(
+                  child:Column(
                     children: [
-                      Card(
-                        elevation: 2,
+                      Center(
                         child: Container(
-                          padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width*0.08,
-                              right: MediaQuery.of(context).size.width*0.02,
-                            top: MediaQuery.of(context).size.height*0.015,
-                            bottom:  MediaQuery.of(context).size.height*0.015
-                          ),
+                          width: 55,
+                          height: 55,
                           decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/images/cardBg.png"),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          height: 100,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-
-                                  Text('12 Rue Lamartie 75017',
-                                    textAlign: TextAlign.left,
-                                    style: AppTextStyle.appBarHeader(
-                                    color: Color(0xff222426),
-                                    size: 9.1,
-                                    fontWeight: FontWeight.w400
-                                  ),),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height*0.05,
-                                  ),
-                                  Text('93 Rue de Paris  94220 Charennton',style: AppTextStyle.appBarHeader(
-                                      color: Color(0xff222426),
-                                      size: 9.1,
-                                      fontWeight: FontWeight.w400
-                                  ),),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    height: 26,
-                                    width: 44,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xff979797)
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '89€',
-                                        style: AppTextStyle.appBarHeader(
-                                          color: Color(0xff042C5C),
-                                          size: 13,
-                                          fontWeight: FontWeight.bold
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Text('Reçu',
-                                    style: AppTextStyle.appBarHeader(
-                                      color: Color(0xff042C5C),
-                                      size: 10,
-                                      fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                  Text('24/01',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xc4042c5c),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                ],
+                              image: DecorationImage(
+                                image: AssetImage('assets/images/credit-card.png'),
+                                fit: BoxFit.fill,
                               )
-                            ],
                           ),
                         ),
                       ),
-                      Card(
-                        elevation: 2,
-                        child: Container(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width*0.08,
-                              right: MediaQuery.of(context).size.width*0.02,
-                              top: MediaQuery.of(context).size.height*0.015,
-                              bottom:  MediaQuery.of(context).size.height*0.015
-                          ),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/images/cardBg.png"),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          height: 100,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-
-                                  Text('12 Rue Lamartie 75017',
-                                    textAlign: TextAlign.left,
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff222426),
-                                        size: 9.1,
-                                        fontWeight: FontWeight.w400
-                                    ),),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height*0.05,
-                                  ),
-                                  Text('93 Rue de Paris  94220 Charennton',style: AppTextStyle.appBarHeader(
-                                      color: Color(0xff222426),
-                                      size: 9.1,
-                                      fontWeight: FontWeight.w400
-                                  ),),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    height: 26,
-                                    width: 44,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xff979797)
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '89€',
-                                        style: AppTextStyle.appBarHeader(
-                                            color: Color(0xff042C5C),
-                                            size: 13,
-                                            fontWeight: FontWeight.bold
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Text('Reçu',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff042C5C),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                  Text('24/01',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xc4042c5c),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
+                      SizedBox(
+                        height: 26,
+                      ),
+                      Center(
+                        child: Text('70,99€',
+                          style: AppTextStyle.appBarHeader(
+                              size: 40,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white
                           ),
                         ),
                       ),
-                      Card(
-                        elevation: 2,
-                        child: Container(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width*0.08,
-                              right: MediaQuery.of(context).size.width*0.02,
-                              top: MediaQuery.of(context).size.height*0.015,
-                              bottom:  MediaQuery.of(context).size.height*0.015
-                          ),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/images/cardBg.png"),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          height: 100,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-
-                                  Text('12 Rue Lamartie 75017',
-                                    textAlign: TextAlign.left,
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff222426),
-                                        size: 9.1,
-                                        fontWeight: FontWeight.w400
-                                    ),),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height*0.05,
-                                  ),
-                                  Text('93 Rue de Paris  94220 Charennton',style: AppTextStyle.appBarHeader(
-                                      color: Color(0xff222426),
-                                      size: 9.1,
-                                      fontWeight: FontWeight.w400
-                                  ),),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    height: 26,
-                                    width: 44,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xff979797)
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '89€',
-                                        style: AppTextStyle.appBarHeader(
-                                            color: Color(0xff042C5C),
-                                            size: 13,
-                                            fontWeight: FontWeight.bold
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Text('Reçu',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff042C5C),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                  Text('24/01',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xc4042c5c),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
+                      SizedBox(
+                        height: 10,
                       ),
-                      Card(
-                        elevation: 2,
-                        child: Container(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width*0.08,
-                              right: MediaQuery.of(context).size.width*0.02,
-                              top: MediaQuery.of(context).size.height*0.015,
-                              bottom:  MediaQuery.of(context).size.height*0.015
-                          ),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/images/cardBg.png"),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          height: 100,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-
-                                  Text('12 Rue Lamartie 75017',
-                                    textAlign: TextAlign.left,
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff222426),
-                                        size: 9.1,
-                                        fontWeight: FontWeight.w400
-                                    ),),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height*0.05,
-                                  ),
-                                  Text('93 Rue de Paris  94220 Charennton',style: AppTextStyle.appBarHeader(
-                                      color: Color(0xff222426),
-                                      size: 9.1,
-                                      fontWeight: FontWeight.w400
-                                  ),),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    height: 26,
-                                    width: 44,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xff979797)
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '89€',
-                                        style: AppTextStyle.appBarHeader(
-                                            color: Color(0xff042C5C),
-                                            size: 13,
-                                            fontWeight: FontWeight.bold
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Text('Reçu',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff042C5C),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                  Text('24/01',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xc4042c5c),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Card(
-                        elevation: 2,
-                        child: Container(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width*0.08,
-                              right: MediaQuery.of(context).size.width*0.02,
-                              top: MediaQuery.of(context).size.height*0.015,
-                              bottom:  MediaQuery.of(context).size.height*0.015
-                          ),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/images/cardBg.png"),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          height: 100,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-
-                                  Text('12 Rue Lamartie 75017',
-                                    textAlign: TextAlign.left,
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff222426),
-                                        size: 9.1,
-                                        fontWeight: FontWeight.w400
-                                    ),),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height*0.05,
-                                  ),
-                                  Text('93 Rue de Paris  94220 Charennton',style: AppTextStyle.appBarHeader(
-                                      color: Color(0xff222426),
-                                      size: 9.1,
-                                      fontWeight: FontWeight.w400
-                                  ),),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    height: 26,
-                                    width: 44,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xff979797)
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '89€',
-                                        style: AppTextStyle.appBarHeader(
-                                            color: Color(0xff042C5C),
-                                            size: 13,
-                                            fontWeight: FontWeight.bold
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Text('Reçu',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff042C5C),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                  Text('24/01',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xc4042c5c),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Card(
-                        elevation: 2,
-                        child: Container(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width*0.08,
-                              right: MediaQuery.of(context).size.width*0.02,
-                              top: MediaQuery.of(context).size.height*0.015,
-                              bottom:  MediaQuery.of(context).size.height*0.015
-                          ),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/images/cardBg.png"),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          height: 100,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-
-                                  Text('12 Rue Lamartie 75017',
-                                    textAlign: TextAlign.left,
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff222426),
-                                        size: 9.1,
-                                        fontWeight: FontWeight.w400
-                                    ),),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height*0.05,
-                                  ),
-                                  Text('93 Rue de Paris  94220 Charennton',style: AppTextStyle.appBarHeader(
-                                      color: Color(0xff222426),
-                                      size: 9.1,
-                                      fontWeight: FontWeight.w400
-                                  ),),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    height: 26,
-                                    width: 44,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xff979797)
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '89€',
-                                        style: AppTextStyle.appBarHeader(
-                                            color: Color(0xff042C5C),
-                                            size: 13,
-                                            fontWeight: FontWeight.bold
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Text('Reçu',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff042C5C),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                  Text('24/01',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xc4042c5c),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Card(
-                        elevation: 2,
-                        child: Container(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width*0.08,
-                              right: MediaQuery.of(context).size.width*0.02,
-                              top: MediaQuery.of(context).size.height*0.015,
-                              bottom:  MediaQuery.of(context).size.height*0.015
-                          ),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/images/cardBg.png"),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          height: 100,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-
-                                  Text('12 Rue Lamartie 75017',
-                                    textAlign: TextAlign.left,
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff222426),
-                                        size: 9.1,
-                                        fontWeight: FontWeight.w400
-                                    ),),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height*0.05,
-                                  ),
-                                  Text('93 Rue de Paris  94220 Charennton',style: AppTextStyle.appBarHeader(
-                                      color: Color(0xff222426),
-                                      size: 9.1,
-                                      fontWeight: FontWeight.w400
-                                  ),),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    height: 26,
-                                    width: 44,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xff979797)
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '89€',
-                                        style: AppTextStyle.appBarHeader(
-                                            color: Color(0xff042C5C),
-                                            size: 13,
-                                            fontWeight: FontWeight.bold
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Text('Reçu',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff042C5C),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                  Text('24/01',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xc4042c5c),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Card(
-                        elevation: 2,
-                        child: Container(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width*0.08,
-                              right: MediaQuery.of(context).size.width*0.02,
-                              top: MediaQuery.of(context).size.height*0.015,
-                              bottom:  MediaQuery.of(context).size.height*0.015
-                          ),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/images/cardBg.png"),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          height: 100,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-
-                                  Text('12 Rue Lamartie 75017',
-                                    textAlign: TextAlign.left,
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff222426),
-                                        size: 9.1,
-                                        fontWeight: FontWeight.w400
-                                    ),),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height*0.05,
-                                  ),
-                                  Text('93 Rue de Paris  94220 Charennton',style: AppTextStyle.appBarHeader(
-                                      color: Color(0xff222426),
-                                      size: 9.1,
-                                      fontWeight: FontWeight.w400
-                                  ),),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    height: 26,
-                                    width: 44,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xff979797)
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '89€',
-                                        style: AppTextStyle.appBarHeader(
-                                            color: Color(0xff042C5C),
-                                            size: 13,
-                                            fontWeight: FontWeight.bold
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Text('Reçu',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xff042C5C),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                  Text('24/01',
-                                    style: AppTextStyle.appBarHeader(
-                                        color: Color(0xc4042c5c),
-                                        size: 10,
-                                        fontWeight: FontWeight.w400
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
+                      Center(
+                        child: Text('Votre portefeuille',
+                          style: AppTextStyle.appBarHeader(
+                              size: 20,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white
                           ),
                         ),
                       ),
                     ],
+                  ) ,
+                ),
+              ),
+              Row(
+                children: [
+                  Container(
+                    height: 85,
+                    width: MediaQuery.of(context).size.width*0.5,
+                    decoration: BoxDecoration(
+                        color: Color(0xff042C5C),
+                      border: Border(
+                        right: BorderSide(
+                          color:Colors.lightBlue,
+                          width: 0.5,
+                        )
+                      )
+                    ),
+                    child: Center(
+                      child: Text('EN COURS\n350.0€',
+                        textAlign: TextAlign.center,
+                      style: AppTextStyle.appBarHeader(
+                        size: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400
+                      ),
+                      ),
+                    ),
                   ),
+                  Container(
+                    height: 85,
+                    width: MediaQuery.of(context).size.width*0.5,
+                    decoration: BoxDecoration(
+                        color: Color(0xff042C5C),
+                        border: Border(
+                            left: BorderSide(
+                              color: Colors.lightBlue,
+                              width: 0.5,
+                            )
+                        )
+                    ),
+                    child: Center(
+                      child: Text('MES GAINS\n70.99€',
+                        textAlign: TextAlign.center,
+                        style: AppTextStyle.appBarHeader(
+                            size: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                color: Color(0xffffffff),
+              ),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+            top: 420,
+             left: MediaQuery.of(context).size.height*0.03,
+            right: MediaQuery.of(context).size.height*0.03,
+          ),
+            child: ListView(
+              children: [
+                Card(
+                  elevation: 2,
+                  child: Container(
+                    padding: EdgeInsets.only(
+                      left: 20,
+                      right: 10
+                    ),
+                    height: 119,
+                    color: Colors.white,
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/museum.png'),
+                              fit: BoxFit.fill,
+                            )
+                          ),
+                        ),
+                        SizedBox(
+                          width: 26,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'MATHIEU B',
+                                  style: AppTextStyle.appBarHeader(
+                                      size: 15,
+                                      fontWeight: FontWeight.w400
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 75,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'FR76123489098768779',
+                                  style: AppTextStyle.appBarHeader(
+                                      size: 15,
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: AppFontFamilly.avenirNext
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'AGRIFP6856',
+                                  style: AppTextStyle.appBarHeader(
+                                      size: 15,
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: AppFontFamilly.avenirNext
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 75,
+                                )
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
                 SizedBox(
-                  height: 150,
-                )
+                  height: 54,
+                ),
+                Center(
+                  child: ButtonChaliar(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/order_validate');
+                      },
+                      buttonText: 'TRANSFERT BANCAIRE',
+                      height:49,
+                      mediaQueryWidth: 0.42,
+                      borderRaduis: 40,
+                      backgroundcolor: Color(0xffDE335C),
+                      bordercolor:  Color(0xffDE335C),
+                      textStyle: AppTextStyle.appBarHeader(
+                          size: 9.78,
+                          color: ChaliarColors.whiteColor)),
+                ),
               ],
             ),
           ),
-
           Padding(
             padding: EdgeInsets.only(
                 top: 0
             ),
             child: CustomHearder(
-              title: "Facturation",
+              title: "Mon portefeuille",
             ),
           ),
           Padding(
@@ -748,13 +256,6 @@ class _HomeFacturationScreenState extends State<HomeFacturationScreen> {
                 Navigator.pop(context);
               },
               child: Icon(Icons.arrow_back_ios,color: Colors.white,),
-            ),
-          ),
-          Padding(padding: EdgeInsets.only(
-            top:MediaQuery.of(context).size.height*0.91,
-          ),
-            child:  CustomBottomNavigationBar(
-              bgColor: Colors.transparent,
             ),
           ),
         ],

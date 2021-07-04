@@ -49,6 +49,9 @@ class OnboardingPageWidget extends StatelessWidget {
                   left: MediaQuery.of(context).size.height * 0.05,
                   right: MediaQuery.of(context).size.height * 0.05),
               child: ListView(
+                padding: EdgeInsets.only(
+                  top: 10,
+                ),
                 children: <Widget>[
                   Center(
                       child: Text(

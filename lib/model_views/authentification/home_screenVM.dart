@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/ui/views/authentifications/register_screen.dart';
 
 class AuthentificationHomeScreenMV extends BaseModel{
-  var group = TypeUser.professionnel;
+  var group = TypeUser.voiture;
   void pushPage(BuildContext context, String page) {
     Navigator.pushNamed(context, '/$page');
   }
