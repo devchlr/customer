@@ -54,6 +54,7 @@ dependencies:
   storage_path: ^0.2.0
   transparent_image: ^2.0.0
   url_launcher: ^6.0.8
+  signature: ^4.1.1
 
 dev_dependencies:
   flutter_test:

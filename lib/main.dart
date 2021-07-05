@@ -21,6 +21,7 @@ import 'package:flutter_app/ui/views/orders/form/camera/camera_screen.dart';
 import 'package:flutter_app/ui/views/orders/form/depart_order_form.dart';
 import 'package:flutter_app/ui/views/orders/form/package_information_screen.dart';
 import 'package:flutter_app/ui/views/orders/form/resume_order_screen.dart';
+import 'package:flutter_app/ui/views/orders/form/signature_pad.dart';
 import 'package:flutter_app/ui/views/orders/home_order_screen.dart';
 import 'package:flutter_app/ui/views/orders/order_live_tracking_screen.dart';
 import 'package:flutter_app/ui/views/orders/order_recapt.dart';
@@ -70,7 +71,7 @@ class MyApp extends StatelessWidget {
           unselectedWidgetColor: Colors.grey,
           disabledColor: Colors.grey),
       routes: <String, WidgetBuilder>{
-        "/splash": (BuildContext context) => new SplashScreen(),
+        "/splash": (BuildContext context) => new SignatureOrderScreen(),
         "/tuto": (BuildContext context) => new OnboardingScreen(),
         "/connexion": (BuildContext context) => new ConnexionScreen(),
         "/pro_particulier": (BuildContext context) =>
