@@ -18,168 +18,164 @@ class ProParticulierScreen extends StatelessWidget {
       child: Consumer<AuthentificationHomeScreenMV>(
         builder: (context, model, child) =>
             Scaffold(
-              body: Stack(
-                fit: StackFit.expand,
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        height: 375,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage("assets/images/bgBlueHmVelo.png"),
-                            fit: BoxFit.fill,
-                          ),
+              body: SingleChildScrollView(
+                child: Stack(
+                  children: [
+                    Container(
+                      height: 400,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("assets/images/bgBlueHmVelo.png"),
+                          fit: BoxFit.fill,
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: ChaliarColors.whiteColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 15, right: 15),
-                    child: ListView(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 53),
-                            child: Center(
-                              child: SvgPicture.asset(
-                                "assets/images/logo.svg",
-                                height: 104,
-                                width: 200,
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 15, right: 15),
+                      child: Column(
+                          children: [
+                            SizedBox(
+                              height: 90,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 0),
+                              child:
+                              Center(
+                                child:
+                                SvgPicture.asset(
+                                  "assets/images/logo.svg",
+                                  height: 104,
+                                  width: 200,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 200,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height * 0.03,
-                              ),
-                              Container(
-                                child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:CrossAxisAlignment.center,
-                                    children:[
-                                      Text.rich(
-                                        TextSpan(
-                                          text: "Bienvenue sur Chaliar",
-                                          style: AppTextStyle.headerApp1(
-                                              color: Color(0xff2F3547),fontFamilly: AppFontFamilly.avenirHeavy,fontWeight: FontWeight.w400),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: MediaQuery.of(context).size.height * 0.02,
-                                      ),
-                                      Container(
-                                        height: 3,
-                                        width: 57.68,
-                                        decoration:
-                                        BoxDecoration(color: ChaliarColors.whiteGreyColor),
-                                      ),
-                                      SizedBox(
-                                        height: MediaQuery.of(context).size.height * 0.02,
-                                      ),
-                                      CustomRadioListTile(
-                                        radioColor: ChaliarColors.secondaryColors,
-                                        onClick: (){
-                                          model.setRadioGroup(TypeUser.velo);
-                                        },
-                                        width: 0.55,
-                                        heigth: 0.19,
-                                        raduis: 5.0,
-                                        title: 'J’ai un vélo',
-                                        subtile:
-                                        '29€',
-                                        group: model.group,
-                                        value: TypeUser.velo,
-                                      ),
-                                      SizedBox(
-                                        height: MediaQuery.of(context).size.height * 0.01,
-                                      ),
-                                      CustomRadioListTile(
-                                        onClick: (){
-                                          model.setRadioGroup(TypeUser.scooter);
-                                        },
-                                        radioColor: ChaliarColors.secondaryColors,
-                                        width: 0.55,
-                                        heigth: 0.19,
-                                        raduis: 5.0,
-                                        title: 'J’ai un scooter',
-                                        subtile:
-                                        '39€',
-                                        group: model.group,
-                                        value: TypeUser.scooter,
-                                      ),
-                                      SizedBox(
-                                        height: MediaQuery.of(context).size.height * 0.01,
-                                      ),
-                                      CustomRadioListTile(
-                                        onClick: (){
-                                          model.setRadioGroup(TypeUser.voiture);
-                                        },
-                                        radioColor: ChaliarColors.secondaryColors,
-                                        width: 0.55,
-                                        heigth: 0.19,
-                                        raduis: 5.0,
-                                        title: 'J’ai une voiture',
-                                        subtile:
-                                        '49€',
-                                        group: model.group,
-                                        value: TypeUser.voiture,
-                                      ),
-                                      SizedBox(
-                                        height: MediaQuery.of(context).size.height * 0.01,
-                                      ),
-                                      CustomRadioListTile(
-                                        onClick: (){
-                                          model.setRadioGroup(TypeUser.camion);
-                                        },
-                                        radioColor: ChaliarColors.secondaryColors,
-                                        width: 0.55,
-                                        heigth: 0.19,
-                                        raduis: 5.0,
-                                        title: 'J’ai un camion',
-                                        subtile:
-                                        '89€',
-                                        group: model.group,
-                                        value: TypeUser.camion,
-                                      ),
-                                      SizedBox(
-                                        height:35,
-                                      ),
-                                      ButtonChaliar(
-                                          onTap: (){
-                                            model.pushUserRegisterPagePreference(context);
-                                          },
-                                          buttonText: 'Suivant',
-                                          height: 48,
-                                          mediaQueryWidth: 0.3,
-                                          borderRaduis: 100,
-                                          backgroundcolor: ChaliarColors.primaryColors,
-                                          bordercolor: ChaliarColors.primaryColors,
-                                          textStyle: AppTextStyle.button(
-                                              color: ChaliarColors.whiteColor)),
-                                      SizedBox(
-                                        height:55,
-                                      ),
-                                    ]
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 220,
                                 ),
-                              )
-                            ],
-                          ),
-                        ]),
-                  )
-                ],
+                                Container(
+                                  child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment:CrossAxisAlignment.center,
+                                      children:[
+                                        Text.rich(
+                                          TextSpan(
+                                            text: "Bienvenue sur Chaliar",
+                                            style: AppTextStyle.headerApp1(
+                                                color: Color(0xff2F3547),fontFamilly: AppFontFamilly.avenirHeavy,fontWeight: FontWeight.w400),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          height: 3,
+                                          width: 57.68,
+                                          decoration:
+                                          BoxDecoration(color: ChaliarColors.whiteGreyColor),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        CustomRadioListTile(
+                                          radioColor: ChaliarColors.secondaryColors,
+                                          onClick: (){
+                                            model.setRadioGroup(TypeUser.velo);
+                                          },
+                                          width: 0.55,
+                                          heigth: 0.19,
+                                          raduis: 5.0,
+                                          title: 'J’ai un vélo',
+                                          subtile:
+                                          '29€',
+                                          group: model.group,
+                                          value: TypeUser.velo,
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        CustomRadioListTile(
+                                          onClick: (){
+                                            model.setRadioGroup(TypeUser.scooter);
+                                          },
+                                          radioColor: ChaliarColors.secondaryColors,
+                                          width: 0.55,
+                                          heigth: 0.19,
+                                          raduis: 5.0,
+                                          title: 'J’ai un scooter',
+                                          subtile:
+                                          '39€',
+                                          group: model.group,
+                                          value: TypeUser.scooter,
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        CustomRadioListTile(
+                                          onClick: (){
+                                            model.setRadioGroup(TypeUser.voiture);
+                                          },
+                                          radioColor: ChaliarColors.secondaryColors,
+                                          width: 0.55,
+                                          heigth: 0.19,
+                                          raduis: 5.0,
+                                          title: 'J’ai une voiture',
+                                          subtile:
+                                          '49€',
+                                          group: model.group,
+                                          value: TypeUser.voiture,
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        CustomRadioListTile(
+                                          onClick: (){
+                                            model.setRadioGroup(TypeUser.camion);
+                                          },
+                                          radioColor: ChaliarColors.secondaryColors,
+                                          width: 0.55,
+                                          heigth: 0.19,
+                                          raduis: 5.0,
+                                          title: 'J’ai un camion',
+                                          subtile:
+                                          '89€',
+                                          group: model.group,
+                                          value: TypeUser.camion,
+                                        ),
+                                        SizedBox(
+                                          height:35,
+                                        ),
+                                        ButtonChaliar(
+                                            onTap: (){
+                                              model.pushUserRegisterPagePreference(context);
+                                            },
+                                            buttonText: 'Suivant',
+                                            height: 48,
+                                            mediaQueryWidth: 0.3,
+                                            borderRaduis: 100,
+                                            backgroundcolor: ChaliarColors.primaryColors,
+                                            bordercolor: ChaliarColors.primaryColors,
+                                            textStyle: AppTextStyle.button(
+                                                color: ChaliarColors.whiteColor)),
+                                        SizedBox(
+                                          height:55,
+                                        ),
+                                      ]
+                                  ),
+                                )
+                              ],
+                            ),
+                          ]),
+                    ),
+
+                  ],
+                ),
               ),
+
             ),),);
   }
 }

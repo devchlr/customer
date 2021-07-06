@@ -51,6 +51,7 @@ class _SignatureOrderScreenState extends State<SignatureOrderScreen> {
               top: MediaQuery.of(context).size.width*0.1,
               left: MediaQuery.of(context).size.width*0.05,
               right:  MediaQuery.of(context).size.width*0.05,
+              bottom: MediaQuery.of(context).size.width*0.05,
             ),
             child: Card(
               shape: RoundedRectangleBorder(

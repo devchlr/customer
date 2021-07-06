@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/ui/styles/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,16 +14,19 @@ class OnboardingPageWidget extends StatelessWidget {
   final VoidCallback? onTap;
   OnboardingPageWidget(
       {this.imageAsset,
-      this.title,
-      this.subTitle,
-      this.buttonText,
-      this.buildPageIndicator,
-      this.onTap});
+        this.title,
+        this.subTitle,
+        this.buttonText,
+        this.buildPageIndicator,
+        this.onTap});
   @override
   Widget build(BuildContext context) {
-    return  Stack(
-      children: [
-        Container(
+    return SingleChildScrollView(
+      child:  Stack(
+        children: [
+          Container(
+            height: 700,
+            width: MediaQuery.of(context).size.width,
             margin: EdgeInsets.only(
               left:MediaQuery.of(context).size.width * 0.1,
             ),
@@ -33,66 +37,62 @@ class OnboardingPageWidget extends StatelessWidget {
               ),
             ),
           ),
-        Padding(
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.59,
-            ),
-            child: Container(
-              decoration: BoxDecoration(
-                color: ChaliarColors.whiteColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(MediaQuery.of(context).size.height * 0.04),
-                  topRight: Radius.circular(MediaQuery.of(context).size.height * 0.04),
-                ),
-              ),
-              padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.height * 0.05,
-                  right: MediaQuery.of(context).size.height * 0.05),
-              child: ListView(
-                padding: EdgeInsets.only(
-                  top: 10,
-                ),
-                children: <Widget>[
-                  Center(
-                      child: Text(
-                        title!,
-                        textAlign: TextAlign.center,
-                        style:
-                        AppTextStyle.tutorialHeader(color: Color(0xff042C5C)),
-                      )),
-                  SizedBox(height:17),
-                  Center(
-                    child: Text(subTitle!,
-                        textAlign: TextAlign.center,
-                        style:
-                        AppTextStyle.tutorialDescription(color: Color(0xff77869E))),
-                  ),
-                  SizedBox(height: 28),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: buildPageIndicator!,
-                  ),
-                  SizedBox(height: 28),
-                  Center(
-                    child: ButtonChaliar(
-                        onTap: onTap,
-                        buttonText: buttonText,
-                        height: MediaQuery.of(context).size.height * 0.07,
-                        mediaQueryWidth: 0.8,
-                        borderRaduis: 50,
-                        backgroundcolor: ChaliarColors.whiteColor,
-                        bordercolor: ChaliarColors.primaryColors,
-                        textStyle: AppTextStyle.button(
-                            color: ChaliarColors.primaryColors)),
-                  ),
-                  SizedBox(
-                    height: 26,
-                  ),
-                ],
+          Container(
+            height: 250,
+            decoration: BoxDecoration(
+              color: ChaliarColors.whiteColor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(MediaQuery.of(context).size.height * 0.04),
+                topRight: Radius.circular(MediaQuery.of(context).size.height * 0.04),
               ),
             ),
-          ),
-      ],
+            margin: EdgeInsets.only(
+              top:  MediaQuery.of(context).size.height * 0.58,
+            ),
+            child:
+            Column(
+              children: <Widget>[
+                SizedBox(height:17),
+                Center(
+                    child: Text(
+                      title!,
+                      textAlign: TextAlign.center,
+                      style:
+                      AppTextStyle.tutorialHeader(color: Color(0xff042C5C)),
+                    )),
+                SizedBox(height:17),
+                Center(
+                  child: Text(subTitle!,
+                      textAlign: TextAlign.center,
+                      style:
+                      AppTextStyle.tutorialDescription(color: Color(0xff77869E))),
+                ),
+                SizedBox(height: 18),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: buildPageIndicator!,
+                ),
+                SizedBox(height: 18),
+                Center(
+                  child: ButtonChaliar(
+                      onTap: onTap,
+                      buttonText: buttonText,
+                      height: 48,
+                      mediaQueryWidth: 0.37,
+                      borderRaduis: 50,
+                      backgroundcolor: ChaliarColors.whiteColor,
+                      bordercolor: ChaliarColors.primaryColors,
+                      textStyle: AppTextStyle.button(
+                          color: ChaliarColors.primaryColors)),
+                ),
+                SizedBox(
+                  height: 26,
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
