@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/constants/iconList.dart';
+
 import 'package:flutter_app/ui/views/profile/annexe/payment_form/visa_form.dart';
-import 'package:flutter_app/ui/widgets/appBar.dart';
+
 import 'package:flutter_app/ui/widgets/custom_header.dart';
-import 'package:flutter_app/ui/widgets/svg_button.dart';
 
 class AddPaymentMethodScreen extends StatefulWidget {
   const AddPaymentMethodScreen({Key? key}) : super(key: key);
@@ -16,18 +15,6 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: ChaliarMenu.topBar(
-      //     leading: GestureDetector(
-      //       onTap: (){
-      //         Navigator.pop(context);
-      //       },
-      //       child: Icon(Icons.arrow_back_ios,color: Color(0xffF3F3F3),),
-      //     ),
-      //     description: '',
-      //     title: 'Méthode de paiement',
-      //     bgColor: Color(0xffd8d8d8),
-      //     imageBackground: 'assets/images/header.png'
-      // ),
       backgroundColor: Color(0xffF3F3F3),
       body: Stack(
         children: [

@@ -3,7 +3,6 @@ import 'package:flutter_app/constants/iconList.dart';
 import 'package:flutter_app/ui/styles/chaliar_color.dart';
 import 'package:flutter_app/ui/styles/chaliar_font.dart';
 import 'package:flutter_app/ui/styles/text_style.dart';
-import 'package:flutter_app/ui/widgets/appBar.dart';
 import 'package:flutter_app/ui/widgets/button.dart';
 import 'package:flutter_app/ui/widgets/custom_header.dart';
 import 'package:flutter_app/ui/widgets/svg_button.dart';
@@ -22,18 +21,6 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: ChaliarMenu.topBar(
-      //     leading: GestureDetector(
-      //       onTap: (){
-      //         Navigator.pop(context);
-      //       },
-      //       child: Icon(Icons.arrow_back_ios,color: Color(0xffd8d8d8)),
-      //     ),
-      //     description: '',
-      //     title: 'Méthode de paiement',
-      //     bgColor: Color(0xffF3F3F3),
-      //     imageBackground: 'assets/images/header.png'
-      // ),
       backgroundColor: Color(0xffF3F3F3),
       body: Stack(
         children: [
