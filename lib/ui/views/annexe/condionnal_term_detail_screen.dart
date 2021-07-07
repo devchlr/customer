@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
-import 'package:flutter_app/ui/widgets/appBar.dart';
-import 'package:flutter_app/ui/widgets/custom_header.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/widgets/appBar.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
 
 
 class TermConditionScreen extends StatelessWidget {

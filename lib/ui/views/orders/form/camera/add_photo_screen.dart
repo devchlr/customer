@@ -1,7 +1,7 @@
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/widgets/custom_header.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AddPhotoScreen extends StatefulWidget {

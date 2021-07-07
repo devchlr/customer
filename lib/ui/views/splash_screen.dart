@@ -1,11 +1,11 @@
 import 'dart:ui';
-import 'package:flutter_app/services/preferences/shared_preference_service.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/chaliar_font.dart';
-import 'package:flutter_app/ui/styles/chaliar_icon_size.dart';
+import 'package:chaliar_delivery_app/services/preferences/shared_preference_service.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_font.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_icon_size.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/widgets/button.dart';
+import 'package:chaliar_delivery_app/ui/widgets/button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
 

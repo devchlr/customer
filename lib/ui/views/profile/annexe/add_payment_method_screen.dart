@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_app/ui/views/profile/annexe/payment_form/visa_form.dart';
+import 'package:chaliar_delivery_app/ui/views/profile/annexe/payment_form/visa_form.dart';
 
-import 'package:flutter_app/ui/widgets/custom_header.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
 
 class AddPaymentMethodScreen extends StatefulWidget {
   const AddPaymentMethodScreen({Key? key}) : super(key: key);

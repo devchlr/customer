@@ -2,9 +2,9 @@ import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
-import 'package:flutter_app/ui/widgets/button.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/widgets/button.dart';
 import 'package:signature/signature.dart';
 
 

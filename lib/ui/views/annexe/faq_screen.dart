@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_app/ui/widgets/button.dart';
-import 'package:flutter_app/ui/widgets/custom_header.dart';
+import 'package:chaliar_delivery_app/ui/widgets/button.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
 class FaqScreen extends StatefulWidget {
 
   @override

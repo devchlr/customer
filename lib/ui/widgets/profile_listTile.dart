@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/styles/chaliar_font.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
-import 'package:flutter_app/ui/widgets/svg_button.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_font.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/widgets/svg_button.dart';
 class CustomProfileListTile extends StatelessWidget {
   final String? title;
   final String? iconAsset;

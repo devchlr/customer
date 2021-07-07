@@ -1,4 +1,4 @@
-import 'package:flutter_app/model_views/base_model.dart';
+import 'package:chaliar_delivery_app/model_views/base_model.dart';
 import 'package:flutter/material.dart';
 
 class TutorialVM extends BaseModel{

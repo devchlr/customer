@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/constants/iconList.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
-import 'package:flutter_app/ui/widgets/custom_header.dart';
+import 'package:chaliar_delivery_app/constants/iconList.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 

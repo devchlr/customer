@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
 
 class CustomTabBar extends StatelessWidget {
   final String? title;

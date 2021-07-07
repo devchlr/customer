@@ -1,7 +1,7 @@
-import 'package:flutter_app/model_views/authentification/pre_onboardingVM.dart';
-import 'package:flutter_app/models/user.dart';
+import 'package:chaliar_delivery_app/model_views/authentification/pre_onboardingVM.dart';
+import 'package:chaliar_delivery_app/models/user.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/views/authentifications/conditionnal_term.dart';
+import 'package:chaliar_delivery_app/ui/views/authentifications/conditionnal_term.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class PreOnboardingScreen extends StatefulWidget {

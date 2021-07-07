@@ -1,11 +1,11 @@
-import 'package:flutter_app/model_views/order/arrive_view_model.dart';
-import 'package:flutter_app/models/commande.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
-import 'package:flutter_app/ui/widgets/button.dart';
-import 'package:flutter_app/ui/widgets/custom_botom_navigation_bar.dart';
-import 'package:flutter_app/ui/widgets/custom_header.dart';
-import 'package:flutter_app/ui/widgets/input_field.dart';
+import 'package:chaliar_delivery_app/model_views/order/arrive_view_model.dart';
+import 'package:chaliar_delivery_app/models/commande.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/widgets/button.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_botom_navigation_bar.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
+import 'package:chaliar_delivery_app/ui/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

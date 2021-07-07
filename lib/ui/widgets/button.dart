@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/constants/iconList.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/widgets/svg_button.dart';
+import 'package:chaliar_delivery_app/constants/iconList.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/widgets/svg_button.dart';
 
 class ButtonChaliar extends StatelessWidget {
   final VoidCallback? onTap;

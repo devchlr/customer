@@ -1,11 +1,11 @@
-import 'package:flutter_app/model_views/base_model.dart';
-import 'package:flutter_app/services/fire_auth_service.dart';
-import 'package:flutter_app/services/fire_store_service.dart';
-// import 'package:flutter_app/ui/views/auth/phone_opt/phone_number_validate.dart';
+import 'package:chaliar_delivery_app/model_views/base_model.dart';
+import 'package:chaliar_delivery_app/services/fire_auth_service.dart';
+import 'package:chaliar_delivery_app/services/fire_store_service.dart';
+// import 'package:chaliar_delivery_app/ui/views/auth/phone_opt/phone_number_validate.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/views/authentifications/authentification_screen.dart';
-import 'package:flutter_app/ui/views/orders/home_order_screen.dart';
-import 'package:flutter_app/ui/widgets/custom_showSnackBar.dart';
+import 'package:chaliar_delivery_app/ui/views/authentifications/authentification_screen.dart';
+import 'package:chaliar_delivery_app/ui/views/orders/home_order_screen.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_showSnackBar.dart';
 
 class AuthentificationConnexionVM extends BaseModel{
   FirestoreService _storeService = FirestoreService();

@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/constants/iconList.dart';
-import 'package:flutter_app/model_views/profile/home_profileMV.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/chaliar_font.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
-import 'package:flutter_app/ui/widgets/custom_botom_navigation_bar.dart';
-import 'package:flutter_app/ui/widgets/profile_listTile.dart';
-import 'package:flutter_app/ui/widgets/svg_button.dart';
+import 'package:chaliar_delivery_app/constants/iconList.dart';
+import 'package:chaliar_delivery_app/model_views/profile/home_profileMV.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_font.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_botom_navigation_bar.dart';
+import 'package:chaliar_delivery_app/ui/widgets/profile_listTile.dart';
+import 'package:chaliar_delivery_app/ui/widgets/svg_button.dart';
 import 'package:provider/provider.dart';
 
 class HomeProfileScreen extends StatefulWidget {

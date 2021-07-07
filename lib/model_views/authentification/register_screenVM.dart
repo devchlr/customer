@@ -1,17 +1,17 @@
 import 'dart:async';
 
-import 'package:flutter_app/model_views/base_model.dart';
-import 'package:flutter_app/constants/type_user.dart';
-import 'package:flutter_app/models/user.dart';
-// import 'package:flutter_app/ui/views/auth/phone_opt/phone_number_validate.dart';
+import 'package:chaliar_delivery_app/model_views/base_model.dart';
+import 'package:chaliar_delivery_app/constants/type_user.dart';
+import 'package:chaliar_delivery_app/models/user.dart';
+// import 'package:chaliar_delivery_app/ui/views/auth/phone_opt/phone_number_validate.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app/constants/iconList.dart';
+import 'package:chaliar_delivery_app/constants/iconList.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_app/services/fire_auth_service.dart';
-import 'package:flutter_app/services/fire_store_service.dart';
+import 'package:chaliar_delivery_app/services/fire_auth_service.dart';
+import 'package:chaliar_delivery_app/services/fire_store_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/views/authentifications/authentification_screen.dart';
-import 'package:flutter_app/ui/widgets/custom_showSnackBar.dart';
+import 'package:chaliar_delivery_app/ui/views/authentifications/authentification_screen.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_showSnackBar.dart';
 import 'package:uuid/uuid.dart';
 
 class RegisterScreenVM extends BaseModel{

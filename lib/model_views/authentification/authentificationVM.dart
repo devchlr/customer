@@ -1,12 +1,12 @@
 
-import 'package:flutter_app/model_views/base_model.dart';
-import 'package:flutter_app/models/user.dart';
-import 'package:flutter_app/services/fire_store_service.dart';
-// import 'package:flutter_app/ui/views/auth/preCondition_screen.dart';
+import 'package:chaliar_delivery_app/model_views/base_model.dart';
+import 'package:chaliar_delivery_app/models/user.dart';
+import 'package:chaliar_delivery_app/services/fire_store_service.dart';
+// import 'package:chaliar_delivery_app/ui/views/auth/preCondition_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/views/authentifications/pre_contionnal_screen.dart';
-import 'package:flutter_app/ui/widgets/custom_showSnackBar.dart';
+import 'package:chaliar_delivery_app/ui/views/authentifications/pre_contionnal_screen.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_showSnackBar.dart';
 class AuthentificationVM extends BaseModel{
 
   FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

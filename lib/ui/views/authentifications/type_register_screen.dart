@@ -1,13 +1,13 @@
-import 'package:flutter_app/constants/type_user.dart';
-import 'package:flutter_app/model_views/authentification/home_screenVM.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/chaliar_font.dart';
+import 'package:chaliar_delivery_app/constants/type_user.dart';
+import 'package:chaliar_delivery_app/model_views/authentification/home_screenVM.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_font.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_app/ui/styles/chaliar_icon_size.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
-import 'package:flutter_app/ui/widgets/custom_radio_listTile.dart';
-import 'package:flutter_app/ui/widgets/button.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_icon_size.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_radio_listTile.dart';
+import 'package:chaliar_delivery_app/ui/widgets/button.dart';
 import 'package:provider/provider.dart';
 
 class ProParticulierScreen extends StatelessWidget {

@@ -1,13 +1,13 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/constants/iconList.dart';
-import 'package:flutter_app/model_views/authentification/connexionVM.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
-import 'package:flutter_app/ui/widgets/button.dart';
-import 'package:flutter_app/ui/widgets/custom_textField_card.dart';
-import 'package:flutter_app/ui/widgets/input_field.dart';
-import 'package:flutter_app/ui/widgets/svg_button.dart';
+import 'package:chaliar_delivery_app/constants/iconList.dart';
+import 'package:chaliar_delivery_app/model_views/authentification/connexionVM.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/widgets/button.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_textField_card.dart';
+import 'package:chaliar_delivery_app/ui/widgets/input_field.dart';
+import 'package:chaliar_delivery_app/ui/widgets/svg_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -236,13 +236,13 @@ class _SingInScreenState extends State<SingInScreen> {
 
 
 
-// import 'package:flutter_app/model_views/authentification/connexionVM.dart';
-// import 'package:flutter_app/ui/styles/chaliar_color.dart';
-// import 'package:flutter_app/ui/styles/chaliar_font.dart';
-// import 'package:flutter_app/ui/styles/text_style.dart';
+// import 'package:chaliar_delivery_app/model_views/authentification/connexionVM.dart';
+// import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+// import 'package:chaliar_delivery_app/ui/styles/chaliar_font.dart';
+// import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
 // import 'package:flutter/material.dart';
 // import 'package:intl_phone_field/intl_phone_field.dart';
-// import 'package:flutter_app/ui/widgets/button.dart';
+// import 'package:chaliar_delivery_app/ui/widgets/button.dart';
 // import 'package:provider/provider.dart';
 //
 // class PhoneOptMainScreen extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/model_views/base_model.dart';
-import 'package:flutter_app/models/commande.dart';
-import 'package:flutter_app/ui/views/orders/form/package_information_screen.dart';
-import 'package:flutter_app/ui/widgets/custom_showSnackBar.dart';
+import 'package:chaliar_delivery_app/model_views/base_model.dart';
+import 'package:chaliar_delivery_app/models/commande.dart';
+import 'package:chaliar_delivery_app/ui/views/orders/form/package_information_screen.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_showSnackBar.dart';
 
 class ArriveScreenViewModel extends BaseModel{
   TextEditingController arrival_address =TextEditingController();

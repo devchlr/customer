@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/models/image.dart';
+import 'package:chaliar_delivery_app/models/image.dart';
 import 'package:storage_path/storage_path.dart';
 
 class Images extends StatefulWidget {

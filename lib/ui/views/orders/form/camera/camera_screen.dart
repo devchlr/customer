@@ -2,13 +2,13 @@ import 'dart:async';
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/constants/iconList.dart';
-import 'package:flutter_app/model_views/order/cameraMV.dart';
-import 'package:flutter_app/ui/views/orders/form/camera/thumbails/image.dart';
-import 'package:flutter_app/ui/widgets/svg_button.dart';
+import 'package:chaliar_delivery_app/constants/iconList.dart';
+import 'package:chaliar_delivery_app/model_views/order/cameraMV.dart';
+import 'package:chaliar_delivery_app/ui/views/orders/form/camera/thumbails/image.dart';
+import 'package:chaliar_delivery_app/ui/widgets/svg_button.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_app/ui/views/orders/form/camera/display_picture_screen.dart';
+import 'package:chaliar_delivery_app/ui/views/orders/form/camera/display_picture_screen.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart' as pPath;
 

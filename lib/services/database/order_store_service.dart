@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_app/models/commande.dart';
+import 'package:chaliar_delivery_app/models/commande.dart';
 class OrderStoreService {
 
   final _collectionReference = FirebaseFirestore.instance

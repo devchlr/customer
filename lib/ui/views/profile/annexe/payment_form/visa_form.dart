@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/constants/iconList.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/chaliar_font.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
-import 'package:flutter_app/ui/widgets/button.dart';
-import 'package:flutter_app/ui/widgets/custom_textField_card.dart';
-import 'package:flutter_app/ui/widgets/input_field.dart';
-import 'package:flutter_app/ui/widgets/svg_button.dart';
+import 'package:chaliar_delivery_app/constants/iconList.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_font.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/widgets/button.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_textField_card.dart';
+import 'package:chaliar_delivery_app/ui/widgets/svg_button.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 

@@ -1,8 +1,8 @@
 
 import 'package:camera/camera.dart';
-import 'package:flutter_app/model_views/base_model.dart';
+import 'package:chaliar_delivery_app/model_views/base_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/views/orders/form/camera/display_picture_screen.dart';
+import 'package:chaliar_delivery_app/ui/views/orders/form/camera/display_picture_screen.dart';
 
 
 class CameraMV extends BaseModel{

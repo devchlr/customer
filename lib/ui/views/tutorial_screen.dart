@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app/model_views/tutoVM.dart';
+import 'package:chaliar_delivery_app/model_views/tutoVM.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/widgets/custom_header.dart';
-import 'package:flutter_app/ui/widgets/onboarding_page.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
+import 'package:chaliar_delivery_app/ui/widgets/onboarding_page.dart';
 import 'package:provider/provider.dart';
 
 class OnboardingScreen extends StatefulWidget {

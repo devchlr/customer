@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/constants/iconList.dart';
-import 'package:flutter_app/ui/styles/chaliar_color.dart';
-import 'package:flutter_app/ui/styles/chaliar_font.dart';
-import 'package:flutter_app/ui/styles/text_style.dart';
-import 'package:flutter_app/ui/widgets/button.dart';
-import 'package:flutter_app/ui/widgets/custom_botom_navigation_bar.dart';
-import 'package:flutter_app/ui/widgets/custom_header.dart';
-import 'package:flutter_app/ui/widgets/custom_tab.dart';
+import 'package:chaliar_delivery_app/constants/iconList.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
+import 'package:chaliar_delivery_app/ui/styles/chaliar_font.dart';
+import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
+import 'package:chaliar_delivery_app/ui/widgets/button.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_botom_navigation_bar.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
+import 'package:chaliar_delivery_app/ui/widgets/custom_tab.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeCourseScreen extends StatefulWidget {
