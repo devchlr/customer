@@ -19,7 +19,7 @@ class CustomHearder extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.transparent,
           image: DecorationImage(
-            image: isRed==true?AssetImage("assets/images/header.png"):AssetImage("assets/images/header.png"),
+            image: isRed==true?AssetImage("assets/images/headerRed.png"):AssetImage("assets/images/header.png"),
             fit: BoxFit.fill,
           ),
         ),

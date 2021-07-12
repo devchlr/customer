@@ -1,10 +1,13 @@
+import 'dart:io';
+
+import 'package:chaliar_delivery_app/ui/views/orders/form/signature_pad.dart';
+import 'package:chaliar_delivery_app/ui/views/splash_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:chaliar_delivery_app/ui/views/authentifications/authentification_screen.dart';
-import 'package:chaliar_delivery_app/ui/views/authentifications/conditionnal_term.dart';
 import 'package:chaliar_delivery_app/ui/views/course/home_course.dart';
 import 'package:chaliar_delivery_app/ui/views/facture/home_facturation.dart';
 import 'package:chaliar_delivery_app/ui/views/message/home_message.dart';
@@ -21,7 +24,6 @@ import 'package:chaliar_delivery_app/ui/views/orders/form/camera/camera_screen.d
 import 'package:chaliar_delivery_app/ui/views/orders/form/depart_order_form.dart';
 import 'package:chaliar_delivery_app/ui/views/orders/form/package_information_screen.dart';
 import 'package:chaliar_delivery_app/ui/views/orders/form/resume_order_screen.dart';
-import 'package:chaliar_delivery_app/ui/views/orders/form/signature_pad.dart';
 import 'package:chaliar_delivery_app/ui/views/orders/home_order_screen.dart';
 import 'package:chaliar_delivery_app/ui/views/orders/order_live_tracking_screen.dart';
 import 'package:chaliar_delivery_app/ui/views/orders/order_recapt.dart';
@@ -32,9 +34,9 @@ import 'package:chaliar_delivery_app/ui/views/profile/annexe/add_payment_method_
 import 'package:chaliar_delivery_app/ui/views/profile/annexe/edit_profile_screen.dart';
 import 'package:chaliar_delivery_app/ui/views/profile/annexe/payment_method_screen.dart';
 import 'package:chaliar_delivery_app/ui/views/profile/home_profile_screen.dart';
-import 'package:chaliar_delivery_app/ui/views/splash_screen.dart';
 import 'package:chaliar_delivery_app/ui/views/tutorial_screen.dart';
 // import 'package:client_chaliar/ui/views/faq/term_screen.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 Future<void> main() async{
   // Ensure that plugin services are initialized so that `availableCameras()`
@@ -46,8 +48,29 @@ Future<void> main() async{
   final firstCamera = cameras;
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  if (USE_EMULATOR) {
+    await _connectToFirebaseEmulator();
+  }
   runApp(MyApp(camera: firstCamera,));
 }
+
+const bool USE_EMULATOR = true;
+
+Future _connectToFirebaseEmulator() async {
+  final localHostString = Platform.isAndroid ? '10.0.2.2' : 'localhost';
+
+  FirebaseFirestore.instance.settings = Settings(
+    host: '$localHostString:8080',
+    sslEnabled: false,
+    persistenceEnabled: false,
+  );
+  await FirebaseAuth.instance.useEmulator('http://$localHostString:9099');
+  // [Storage | localhost:9199]
+  await firebase_storage.FirebaseStorage.instance.useStorageEmulator(localHostString, 9199);
+}
+
+
+
 
 class MyApp extends StatelessWidget {
   final List<CameraDescription> camera;
@@ -71,7 +94,7 @@ class MyApp extends StatelessWidget {
           unselectedWidgetColor: Colors.grey,
           disabledColor: Colors.grey),
       routes: <String, WidgetBuilder>{
-        "/splash": (BuildContext context) => new PreCommandeScreen(),
+        "/splash": (BuildContext context) => new SplashScreen(),
         "/tuto": (BuildContext context) => new OnboardingScreen(),
         "/connexion": (BuildContext context) => new ConnexionScreen(),
         "/pro_particulier": (BuildContext context) =>
@@ -100,6 +123,7 @@ class MyApp extends StatelessWidget {
          "/order_validate":(BuildContext context)=>new OrderValidateScreen(),
         "/recapt_order":(BuildContext context)=>new OrderRecaptScreen(),
         "/order_live_tracking":(BuildContext context)=>new OrderLiveTrackingScreen(),
+        "/signature_screen":(BuildContext context)=>new SignatureOrderScreen()
       },
     );
   }

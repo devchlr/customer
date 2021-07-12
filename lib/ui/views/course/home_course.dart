@@ -18,6 +18,7 @@ class HomeCourseScreen extends StatefulWidget {
 
 class _HomeCourseScreenState extends State<HomeCourseScreen> {
   bool isExpand=false;
+  bool isExpand1=false;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -332,8 +333,8 @@ class _HomeCourseScreenState extends State<HomeCourseScreen> {
                                         child:
                                         Container(
                                           padding: EdgeInsets.only(
-                                              left: 20,
-                                              right: 20,
+                                              left: 5,
+                                              right: 5,
                                               top: 10,
                                               bottom: 5
                                           ),
@@ -554,10 +555,10 @@ class _HomeCourseScreenState extends State<HomeCourseScreen> {
                               children: [
                                 Column(
                                   children: [
-                                    isExpand==false?GestureDetector(
+                                    isExpand1==false?GestureDetector(
                                       onTap:(){
                                         setState((){
-                                          isExpand=true;
+                                          isExpand1=true;
                                         });
                                       },
                                       child:Card(
@@ -687,16 +688,17 @@ class _HomeCourseScreenState extends State<HomeCourseScreen> {
                                     GestureDetector(
                                       onTap:(){
                                         setState((){
-                                          isExpand=false;
+                                          isExpand1=false;
                                         });
                                       },
-                                      child: Card(
+                                      child:
+                                      Card(
                                         elevation: 2,
                                         child:
                                         Container(
                                           padding: EdgeInsets.only(
-                                              left: 20,
-                                              right: 20,
+                                              left: 2,
+                                              right: 2,
                                               top: 10,
                                               bottom: 5
                                           ),
@@ -836,6 +838,7 @@ class _HomeCourseScreenState extends State<HomeCourseScreen> {
                                                 height: 21,
                                               ),
                                               Row(
+                                                mainAxisAlignment:MainAxisAlignment.spaceAround,
                                                 children: [
                                                   CircleAvatar(
                                                     radius: 9,
@@ -880,7 +883,7 @@ class _HomeCourseScreenState extends State<HomeCourseScreen> {
                                                 height: 35,
                                               ),
                                               Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                 children: [
                                                   Center(
                                                     child: ButtonChaliar(

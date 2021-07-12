@@ -1,13 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:chaliar_delivery_app/constants/iconList.dart';
 import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
 import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:chaliar_delivery_app/ui/widgets/button.dart';
-import 'package:chaliar_delivery_app/ui/widgets/custom_botom_navigation_bar.dart';
 import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 
@@ -32,6 +29,8 @@ class _OrderValidateScreenState extends State<OrderValidateScreen> {
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
+
+
   @override
   Widget build(BuildContext context) {
     return

@@ -3,16 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:chaliar_delivery_app/constants/iconList.dart';
 import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
 import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
-import 'package:chaliar_delivery_app/ui/widgets/appBar.dart';
 import 'package:flutter/material.dart';
 import 'package:chaliar_delivery_app/ui/widgets/button.dart';
-import 'package:chaliar_delivery_app/ui/widgets/custom_botom_navigation_bar.dart';
 import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:timelines/timelines.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
-import 'package:url_launcher/url_launcher.dart';
 
 
 class OrderTrackingScreen extends StatefulWidget {
@@ -27,8 +23,9 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
     super.initState();
   }
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   Completer<GoogleMapController> _controller = Completer();
+
+  bool isClose=false;
 
   GoogleMapController? mapController;
   final LatLng _center = const LatLng(48.85341, 2.3488);
@@ -61,7 +58,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                 ),
               ],
             ),
-            Padding(
+           isClose?Container() :Padding(
               padding: EdgeInsets.only(
                 top: MediaQuery.of(context).size.height * 0.45,
               ),
@@ -259,7 +256,9 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                           Center(
                             child: ButtonChaliar(
                                 onTap: () {
-
+                                  setState(() {
+                                    isClose=true;
+                                  });
                                 },
                                 buttonText: 'REFUSER',
                                 height:49,
@@ -289,7 +288,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                 description: '',
               ),
             ),
-            Padding(
+            isClose?Container() : Padding(
                 padding: EdgeInsets.only(
                   top:MediaQuery.of(context).size.height * 0.43,
                   left:MediaQuery.of(context).size.width * 0.8,
@@ -299,7 +298,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                   onTap:(){
                     print('circle clicked');
                     setState(() {
-
+                      isClose=true;
                     });
                   },
                   child: CircleAvatar(
@@ -309,6 +308,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                   ),
                 )
             ),
+
             Padding(
                 padding: EdgeInsets.only(
                   top:MediaQuery.of(context).size.height * 0.2,
