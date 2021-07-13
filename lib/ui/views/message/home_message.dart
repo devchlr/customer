@@ -62,11 +62,13 @@ class _HomeMessageScreenState extends State<HomeMessageScreen> {
 
     List<Widget>listMessagBuild=[];
     listMessage.forEach((element) {
+    if( element.idUser!=null){
+
       if(element.idUser==user.id){
         listMessagBuild.add(
           Padding(
             padding: EdgeInsets.only(
-              bottom: 20
+                bottom: 20
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -102,47 +104,48 @@ class _HomeMessageScreenState extends State<HomeMessageScreen> {
                 padding: EdgeInsets.only(
                     bottom: 20
                 ),
-           child:
-           Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width*0.05,
-                ),
-                Center(
-                  child:element.urlAvatar!=null? CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    radius: 20,
-                    backgroundImage: NetworkImage(element.urlAvatar.toString()),
-                  ):CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    radius: 20,
-                   child: Center(
-                     child: Text('${userName[0]}'),
-                   ),
-                  ),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Container(
-                    width: 192,
-                    height: 42,
-                    decoration: BoxDecoration(
-                        color: Color(0xff4D4D4D),
-                        borderRadius: BorderRadius.all(Radius.circular(20))
+                child:
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width*0.05,
                     ),
-                    child: Center(
-                      child:Text('${element.message}',style: AppTextStyle.appBarHeader(
-                        color: Color(0xffffffff),
+                    Center(
+                      child:element.urlAvatar!=null? CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        radius: 20,
+                        backgroundImage: NetworkImage(element.urlAvatar.toString()),
+                      ):CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        radius: 20,
+                        child: Center(
+                          child: Text('${userName[0]}'),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                        width: 192,
+                        height: 42,
+                        decoration: BoxDecoration(
+                            color: Color(0xff4D4D4D),
+                            borderRadius: BorderRadius.all(Radius.circular(20))
+                        ),
+                        child: Center(
+                          child:Text('${element.message}',style: AppTextStyle.appBarHeader(
+                            color: Color(0xffffffff),
 
-                      ),),
-                    )
-                ),
-              ],
-            ))
+                          ),),
+                        )
+                    ),
+                  ],
+                ))
         );
       }
+    }
     });
     var senderId=widget.senderId;
     return Scaffold(
