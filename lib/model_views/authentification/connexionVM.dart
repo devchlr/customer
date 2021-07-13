@@ -47,7 +47,7 @@ class AuthentificationConnexionVM extends BaseModel{
         singIng.then((value)async{
           var user= auth.currentUser;
           print(auth.currentUser!.uid);
-          if(user!=null){
+          if(user!=null&& (userResult['userRole']!='particulier'||userResult['userRole']!='professionnel')){
             await sharedPreferenceService.setRegisterPreferenceInformation(userResult['id'], phone!).then((val) {
               loading=false;
               notifyListeners();
