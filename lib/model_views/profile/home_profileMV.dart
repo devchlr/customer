@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:chaliar_delivery_app/model_views/base_model.dart';
 import 'package:chaliar_delivery_app/models/user.dart';
 import 'package:chaliar_delivery_app/services/fire_store_service.dart';
+import 'package:chaliar_delivery_app/services/preferences/shared_preference_service.dart';
 import 'package:chaliar_delivery_app/ui/widgets/custom_showSnackBar.dart';
 import 'package:share/share.dart';
 
@@ -12,33 +13,30 @@ CustomShowSnackBar customShowSnackBar=CustomShowSnackBar();
 FirestoreService firestoreService = FirestoreService();
 FirebaseAuth auth= FirebaseAuth.instance;
 UserChaliar? currentUser;
+SharedPreferenceService sharedPreferenceService=SharedPreferenceService();
+
 
 void getPageByName(BuildContext context, String? routeName){
-  customShowSnackBar.initUserRequestAnimation(context);
   Navigator.pushNamed(context, routeName!);
-  notifyListeners();
 }
 
 void singoutUser(BuildContext context)async{
   customShowSnackBar.initUserRequestAnimation(context);
-  if(auth.currentUser!=null){
+  var user = auth.currentUser;
+  if(user!=null){
     await auth.signOut();
+    Navigator.pushNamedAndRemoveUntil(context, '/singin', (route) => false);
   }
-  Navigator.pushNamedAndRemoveUntil(context, '/singin', (route) => false);
-  notifyListeners();
 }
 
 void sharedApp(){
   Share.share('check out my website https://example.com', subject: 'Inviter un ami sur Chaliar!');
-  notifyListeners();
 }
 
-void getUser()async{
-  var user=auth.currentUser;
-   var fireStoreResult=await firestoreService.getUser(user!.uid);
-  // currentUser=UserChaliar.fromData();
-  // print('usrInfo:$currentUser');
-  notifyListeners();
+getUserD(){
+  var user = auth.currentUser;
+    return firestoreService.getUserFuture(user!.uid);
 }
+
 
 }

@@ -1,3 +1,4 @@
+import 'package:chaliar_delivery_app/models/commande.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:chaliar_delivery_app/constants/iconList.dart';
@@ -11,7 +12,8 @@ import 'package:timeline_tile/timeline_tile.dart';
 
 
 class ResumeOrderScreen extends StatefulWidget {
-  const ResumeOrderScreen({Key? key}) : super(key: key);
+  final Order? order;
+  const ResumeOrderScreen({Key? key,this.order}) : super(key: key);
 
   @override
   _ResumeOrderScreenState createState() => _ResumeOrderScreenState();

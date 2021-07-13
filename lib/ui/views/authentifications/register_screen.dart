@@ -4,6 +4,7 @@ import 'package:chaliar_delivery_app/ui/styles/chaliar_font.dart';
 import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
 import 'package:chaliar_delivery_app/ui/widgets/button.dart';
 import 'package:chaliar_delivery_app/ui/widgets/input_field.dart';
+import 'package:chaliar_delivery_app/ui/widgets/loading.dart';
 import 'package:chaliar_delivery_app/ui/widgets/svg_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -49,8 +50,8 @@ class UserRegisterScreen extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(
                         top: MediaQuery.of(context).size.height*0.1,
-                        left: MediaQuery.of(context).size.width * 0.08,
-                        right: MediaQuery.of(context).size.width * 0.08
+                        left: MediaQuery.of(context).size.width * 0.05,
+                        right: MediaQuery.of(context).size.width * 0.05
                     ),
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -58,16 +59,77 @@ class UserRegisterScreen extends StatelessWidget {
                       ),
                       elevation: 2,
                       child: ListView(
+                        padding: EdgeInsets.only(
+                            top: 0
+                        ),
                         children: [
                           Padding(
                             padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
                             child: InputField(
                               // fieldSize: MediaQuery.of(context).size.height * 0.02,
-                              controller: model.surname,
-                              label: "Prénom",
-                              placeholder: "Prénom",
-                              textFillColor: ChaliarColors.blackColor,
+                                controller: model.surname,
+                                label: "Prénom",
+                                placeholder: "Prénom",
+                                textFillColor: ChaliarColors.blackColor,
+                                maxlenght: 250,
+                                errorText: model.validate_surname?'format du Prénom incorrect':null,
+                                onChanged: (value){
+                                  model.validateSurname();
+                                }
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
+                            child: InputField(
+                                fieldSize: MediaQuery.of(context).size.height * 0.02,
+                                label: "Nom",
+                                controller: model.name,
+                                placeholder: "Nom",
+                                textFillColor: ChaliarColors.blackColor,
+                                maxlenght: 250,
+                                errorText: model.validate_name?'format du Nom incorrect':null,
+                                onChanged: (value){
+                                  model.validateName();
+                                }
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
+                            child: InputField(
+                                fieldSize: MediaQuery.of(context).size.height * 0.02,
+                                label: "Email",
+                                controller: model.email,
+                                typeInput: TextInputType.emailAddress,
+                                placeholder: "Email",
+                                textFillColor: ChaliarColors.blackColor,
+                                maxlenght: 300,
+                                errorText: model.validate_email?'format de l\'email incorrect':null,
+                                onChanged: (value){
+                                  model.validateEmail();
+                                }
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
+                            child: InputField(
+                              fieldSize: MediaQuery.of(context).size.height * 0.02,
+                              label: "Adresse ",
                               maxlenght: 250,
+                              textFillColor: ChaliarColors.blackColor,
+                              controller: model.facturationAdress,
+                              errorText: model.validate_facturationAdress?'Adresse non valide':null,
+                              onChanged: (value){
+                                model.validateAdresseFacturation();
+                              },
                             ),
                           ),
                           SizedBox(
@@ -77,72 +139,31 @@ class UserRegisterScreen extends StatelessWidget {
                             padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
                             child: InputField(
                               fieldSize: MediaQuery.of(context).size.height * 0.02,
-                              label: "Nom",
-                              controller: model.name,
-                              placeholder: "Nom",
+                              label: "Code Postal",
+                              maxlenght: 20,
                               textFillColor: ChaliarColors.blackColor,
+                              controller: model.codePostal,
+                              errorText: model.validate_codePostal?'Code postal non valide':null,
+                              onChanged: (value){
+                                model.validateCodePostal();
+                              },
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
+                            child: InputField(
+                              fieldSize: MediaQuery.of(context).size.height * 0.02,
+                              label: "Ville",
                               maxlenght: 250,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
-                            child: InputField(
-                              fieldSize: MediaQuery.of(context).size.height * 0.02,
-                              label: "Email",
-                              controller: model.email,
-                              typeInput: TextInputType.emailAddress,
-                              placeholder: "Email",
                               textFillColor: ChaliarColors.blackColor,
-                              maxlenght: 300,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
-                            child: InputField(
-                              fieldSize: MediaQuery.of(context).size.height * 0.02,
-                              label: "Mot de passe",
-                              controller: model.password,
-                              suffixIcon:GestureDetector(
-                                onTap: (){
-                                  model.updatePasswordIcon(model.password_obscure);
-                                },
-                                child:  model.password_obscure?Icon(Icons.visibility_off_outlined,color: ChaliarColors.whiteGreyColor):Icon(Icons.remove_red_eye_outlined,color: ChaliarColors.whiteGreyColor,),
-                              ),
-                              typeInput: TextInputType.text,
-                              obscureText: model.password_obscure,
-                              placeholder: "Email",
-                              textFillColor: ChaliarColors.blackColor,
-                              maxlenght: 300,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
-                            child: InputField(
-                              fieldSize: MediaQuery.of(context).size.height * 0.02,
-                              label: "Confirmation de mot de passe",
-                              controller: model.password_confirm,
-                              suffixIcon:GestureDetector(
-                                onTap: (){
-                                  model.updateConfirmPasswordIcon(model.confirm_password_obscure);
-                                },
-                                child: model.confirm_password_obscure?Icon(Icons.visibility_off_outlined,color: ChaliarColors.whiteGreyColor):Icon(Icons.remove_red_eye_outlined,color: ChaliarColors.whiteGreyColor),
-                              ),
-                              typeInput: TextInputType.text,
-                              obscureText: model.confirm_password_obscure,
-                              placeholder: "Email",
-                              textFillColor: ChaliarColors.blackColor,
-                              maxlenght: 300,
-                              // controller: model.email,
-                              // controller: model.email,
+                              controller: model.city,
+                              errorText: model.validate_city?'Ville non valide':null,
+                              onChanged: (value){
+                                model.validateCity();
+                              },
                             ),
                           ),
                           SizedBox(
@@ -155,6 +176,7 @@ class UserRegisterScreen extends StatelessWidget {
                               initialValue: number,
                               onInputChanged: (PhoneNumber number) {
                                 model.phone=number.phoneNumber;
+                                model.validatePhoneNumber();
                                 print(number.phoneNumber);
                               },
                               onInputValidated: (bool value) {
@@ -166,6 +188,7 @@ class UserRegisterScreen extends StatelessWidget {
                               ),
                               ignoreBlank: false,
                               inputDecoration: new InputDecoration(
+                                errorText: model.validate_phoneNumber?'Numero de telephone incorrect':null,
                                 // border: InputBorder.none,
                                 focusedBorder: InputBorder.none,
                                 // enabledBorder: InputBorder.none,
@@ -190,58 +213,29 @@ class UserRegisterScreen extends StatelessWidget {
                               },
                             ),
                           ),
-                          typeUSer == 'particulier'?SizedBox(
-                            height: 0,
-                          )
-                              :SizedBox(
-                            height: 8,
-                          ),
-                          typeUSer == 'particulier'?SizedBox(
-                            height: 0,
-                          )
-                              :Padding(
-                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
-                            child: InputField(
-                                fieldSize: MediaQuery.of(context).size.height * 0.02,
-                                label: "Nom société",
-                                maxlenght: 250,
-                                textFillColor: ChaliarColors.blackColor,
-                                controller: model.societe
-                            ),
-                          ),
-                          typeUSer == 'particulier'?SizedBox(
-                            height: 0,
-                          )
-                              :SizedBox(
-                            height: 8,
-                          ),
-                          typeUSer == 'particulier'?SizedBox(
-                            height: 0,
-                          )
-                              :Padding(
-                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
-                            child: InputField(
-                                fieldSize: MediaQuery.of(context).size.height * 0.02,
-                                label: "Siret (facultatif)",
-                                maxlenght: 250,
-                                textFillColor: ChaliarColors.blackColor,
-                                controller: model.siret
-                            ),
-                          ),
-                          typeUSer == 'particulier'?SizedBox(
-                            height: 0,
-                          )
-                              :SizedBox(
+                          SizedBox(
                             height: 8,
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
                             child: InputField(
-                                fieldSize: MediaQuery.of(context).size.height * 0.02,
-                                label: "Adresse de facturation",
-                                maxlenght: 250,
-                                textFillColor: ChaliarColors.blackColor,
-                                controller: model.facturationAdress
+                              fieldSize: MediaQuery.of(context).size.height * 0.02,
+                              label: "Mot de passe",
+                              controller: model.password,
+                              errorText: model.validate_password?'format du mot de passe incorrect minimun  1 une lettre majuscule 1 lettre minuscule 1 nombre  1 carractere special ( ! @ # \$ & * ~ )':null,
+                              onChanged: (value){
+                                model.validatePassord();
+                              },
+                              suffixIcon:GestureDetector(
+                                onTap: (){
+                                  model.updatePasswordIcon();
+                                },
+                                child:  model.password_obscure?Icon(Icons.visibility_off_outlined,color: ChaliarColors.whiteGreyColor):Icon(Icons.remove_red_eye_outlined,color: ChaliarColors.whiteGreyColor,),
+                              ),
+                              typeInput: TextInputType.text,
+                              obscureText: model.password_obscure,
+                              textFillColor: ChaliarColors.blackColor,
+                              maxlenght: 300,
                             ),
                           ),
                           SizedBox(
@@ -250,11 +244,45 @@ class UserRegisterScreen extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
                             child: InputField(
-                                fieldSize: MediaQuery.of(context).size.height * 0.02,
-                                label: "Code Postal",
-                                maxlenght: 20,
-                                textFillColor: ChaliarColors.blackColor,
-                                controller: model.codePostal
+                              fieldSize: MediaQuery.of(context).size.height * 0.02,
+                              label: "Confirmation de mot de passe",
+                              controller: model.password_confirm,
+                              errorText: model.validate_passwordBis?'les mots de passe ne correspondent pas':null,
+                              onChanged: (value){
+                                model.validatePasswordBis();
+                              },
+                              suffixIcon:GestureDetector(
+                                onTap: (){
+                                  model.updateConfirmPasswordIcon(model.confirm_password_obscure);
+                                },
+                                child: model.confirm_password_obscure?Icon(Icons.visibility_off_outlined,color: ChaliarColors.whiteGreyColor):Icon(Icons.remove_red_eye_outlined,color: ChaliarColors.whiteGreyColor),
+                              ),
+                              typeInput: TextInputType.text,
+                              obscureText: model.confirm_password_obscure,
+                              textFillColor: ChaliarColors.blackColor,
+                              maxlenght: 300,
+                              // controller: model.email,
+                              // controller: model.email,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+
+
+
+                         Padding(
+                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
+                            child: InputField(
+                              fieldSize: MediaQuery.of(context).size.height * 0.02,
+                              label: "Nom société",
+                              maxlenght: 250,
+                              textFillColor: ChaliarColors.blackColor,
+                              controller: model.societe,
+                              errorText: model.validate_societe?'Nom société non valide':null,
+                              onChanged: (value){
+                                model.validateSociete();
+                              },
                             ),
                           ),
                           SizedBox(
@@ -263,16 +291,79 @@ class UserRegisterScreen extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
                             child: InputField(
-                                fieldSize: MediaQuery.of(context).size.height * 0.02,
-                                label: "Ville",
-                                maxlenght: 250,
-                                textFillColor: ChaliarColors.blackColor,
-                                controller: model.city
+                              readOnly: true,
+                              fieldSize: MediaQuery.of(context).size.height * 0.02,
+                              label: "Piece d\'identite",
+                              maxlenght: 250,
+                              textFillColor: ChaliarColors.blackColor,
+                              suffixIcon: ButtonChaliar(
+                                  onTap: () async{
+                                   await model.pickFile(context);
+                                  },
+                                  buttonText: 'Importer',
+                                  height: 15,
+                                  mediaQueryWidth: 0.1,
+                                  borderRaduis: 5,
+                                  backgroundcolor: ChaliarColors.primaryColors,
+                                  bordercolor: ChaliarColors.primaryColors,
+                                  textStyle: AppTextStyle.button(
+                                    size: 10,
+                                      color: ChaliarColors.whiteColor)),
+                            ),
+                          ),
+                         SizedBox(
+                            height: 8,
+                          ),
+
+                          Padding(
+                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
+                            child: InputField(
+                              readOnly: true,
+                              fieldSize: MediaQuery.of(context).size.height * 0.02,
+                              label: "Permis de conduire",
+                              maxlenght: 250,
+                              textFillColor: ChaliarColors.blackColor,
+                              suffixIcon: ButtonChaliar(
+                                  onTap: () async{
+                                   await model.pickFile(context);
+                                  },
+                                  buttonText: 'Importer',
+                                  height: 15,
+                                  mediaQueryWidth: 0.1,
+                                  borderRaduis: 5,
+                                  backgroundcolor: ChaliarColors.primaryColors,
+                                  bordercolor: ChaliarColors.primaryColors,
+                                  textStyle: AppTextStyle.button(
+                                      size: 10,
+                                      color: ChaliarColors.whiteColor)),
                             ),
                           ),
                           SizedBox(
-                            height: 61,
+                            height: 8,
                           ),
+                         Padding(
+                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07, right: MediaQuery.of(context).size.width * 0.07),
+                            child:
+                            InputField(
+                              readOnly: true,
+                              fieldSize: MediaQuery.of(context).size.height * 0.02,
+                              label: "Moyen de Transport ${typeUSer}",
+                              maxlenght: 250,
+                              textFillColor: ChaliarColors.blackColor,
+                              controller: model.siret,
+                              suffixIcon: Checkbox(
+                                value:model.isChecked,
+                                onChanged: (value) {
+                                 model.setCheckState();
+                                },
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 31,
+                          ),
+                          model.loading?LoadingForm():Container(),
+                          model.loading?SizedBox(height: 31,):Container(),
                           Center(
                             child: ButtonChaliar(
                                 onTap: () async{
@@ -309,42 +400,6 @@ class UserRegisterScreen extends StatelessWidget {
                               :SizedBox(
                             height: 16,
                           ),
-                          typeUSer != 'particulier'?SizedBox(
-                            height: 0,
-                          )
-                              :Container(
-                              margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05, right: MediaQuery.of(context).size.width * 0.05),
-                              child: Center(
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      ContainerButton(
-                                          height: 60,
-                                          width: 80,
-                                          iconSvg: SvgIconButton(
-                                              iconAsset: SvgIcons.facebook_blue,
-                                              onPressed: () async{
-                                                model.facebookRegister(context);
-                                              })),
-                                      ContainerButton(
-                                          height: 60,
-                                          width: 80,
-                                          iconSvg: SvgIconButton(
-                                              iconAsset: SvgIcons.google_account,
-                                              onPressed: ()async {
-                                                model.googleRegister(context);
-
-                                              })),
-                                      ContainerButton(
-                                          height: 60,
-                                          width: 80,
-                                          iconSvg: SvgIconButton(
-                                              iconAsset: SvgIcons.apple,
-                                              onPressed: () async{
-                                                model.appleRegister(context);
-                                              })),
-                                    ]),
-                              )),
                           SizedBox(
                               height: 41.0
                           ),

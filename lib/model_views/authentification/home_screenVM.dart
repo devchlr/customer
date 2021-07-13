@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:chaliar_delivery_app/ui/views/authentifications/register_screen.dart';
 
 class AuthentificationHomeScreenMV extends BaseModel{
-  var group = TypeUser.voiture;
+  var group = TypeUser.velo;
   void pushPage(BuildContext context, String page) {
     Navigator.pushNamed(context, '/$page');
   }

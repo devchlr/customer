@@ -1,3 +1,4 @@
+import 'package:chaliar_delivery_app/models/commande.dart';
 import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
 import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,10 @@ import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AddPhotoScreen extends StatefulWidget {
+  OrderDeliveryInformation? deliveryInformation;
+  OrderRecipientInformation? recipientInformation;
+  OrderPackageInformation? packageInformation;
+  AddPhotoScreen({this.deliveryInformation,this.recipientInformation,this.packageInformation});
   @override
   _AddPhotoScreenState createState() => _AddPhotoScreenState();
 }

@@ -3,21 +3,23 @@ import 'package:chaliar_delivery_app/models/commande.dart';
 class OrderStoreService {
 
   final _collectionReference = FirebaseFirestore.instance
-      .collection('order').withConverter<Order>(
+      .collection('orders').withConverter<Order>(
       fromFirestore:(snapshot,_)=>Order.fromJson(snapshot.data()!),
       toFirestore: (order,_)=>order.toJson()
   );
 
 
-  Future<void> getOrder(String id)async{
-  Order order= await _collectionReference.doc(id).get().then((snapshot) => snapshot.data()!);
+  Future getOrder(String id)async{
+  Order order= await _collectionReference.doc(id).get().then((snapshot){
+    return snapshot.data()!;
+  });
   }
 
   Future<void> getUserOrder(String user_id)async{
-    List<QueryDocumentSnapshot<Order>> movies = await _collectionReference
+    Order order = await _collectionReference
         .where('user_id', isEqualTo: user_id)
         .get()
-        .then((snapshot) => snapshot.docs);
+        .then((snapshot) => snapshot.docs.first.data());
   }
   Future<void> addOrder(Order order)async{
     await _collectionReference.add(
@@ -30,16 +32,24 @@ class OrderStoreService {
   }
 
   Future<void> getDeliverOrder(String delivery_id)async{
-    List<QueryDocumentSnapshot<Order>> movies = await _collectionReference
+    List<QueryDocumentSnapshot<Order>> orders = await _collectionReference
         .where('delivery_id', isEqualTo: delivery_id)
         .get()
         .then((snapshot) => snapshot.docs);
   }
 
   Future<void> getOrderByFieldValue(String field, String value)async{
-    List<QueryDocumentSnapshot<Order>> movies = await _collectionReference
+    List<QueryDocumentSnapshot<Order>> orders = await _collectionReference
         .where(field, isEqualTo: value)
         .get()
         .then((snapshot) => snapshot.docs);
+  }
+
+  Future getAllOrders()async{
+    List<QueryDocumentSnapshot<Order>> orders = await _collectionReference
+        .get()
+        .then((snapshot){
+          return  snapshot.docs;
+        });
   }
 }

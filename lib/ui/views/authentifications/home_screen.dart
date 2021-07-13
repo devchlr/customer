@@ -9,6 +9,7 @@ import 'package:chaliar_delivery_app/ui/widgets/button.dart';
 import 'package:provider/provider.dart';
 
 class ConnexionScreen extends StatelessWidget {
+  bool isRegister=false;
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<AuthentificationHomeScreenMV>(
@@ -49,7 +50,7 @@ class ConnexionScreen extends StatelessWidget {
                           height: 21,
                         ),
                         Text(
-                          "Commandez un \ntransporteur",
+                          "Livrez et gagnez de\n l’argent",
                           textAlign: TextAlign.center,
                           style:
                           AppTextStyle.headerApp1(color: ChaliarColors.whiteColor),
@@ -68,7 +69,7 @@ class ConnexionScreen extends StatelessWidget {
                           height: 355,
                           width: 355,
                         ),
-                        Center(
+                       isRegister? Center(
                           child: ButtonChaliar(
                               onTap: () {
                                 model.pushPage(
@@ -82,10 +83,10 @@ class ConnexionScreen extends StatelessWidget {
                               bordercolor: ChaliarColors.primaryColors,
                               textStyle: AppTextStyle.button(
                                   color: ChaliarColors.whiteColor)),
-                        ),
-                        SizedBox(
+                        ):Container(),
+                        isRegister?SizedBox(
                           height: 19,
-                        ),
+                        ):Container(),
                         Center(
                           child: ButtonChaliar(
                               onTap: () {

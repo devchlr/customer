@@ -54,7 +54,7 @@ Future<void> main() async{
   runApp(MyApp(camera: firstCamera,));
 }
 
-const bool USE_EMULATOR = true;
+const bool USE_EMULATOR = false;
 
 Future _connectToFirebaseEmulator() async {
   final localHostString = Platform.isAndroid ? '10.0.2.2' : 'localhost';

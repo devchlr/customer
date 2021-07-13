@@ -1,3 +1,7 @@
+import 'package:chaliar_delivery_app/model_views/order/trackingMV.dart';
+import 'package:chaliar_delivery_app/models/commande.dart';
+import 'package:chaliar_delivery_app/ui/widgets/order_resume_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:chaliar_delivery_app/constants/iconList.dart';
@@ -9,6 +13,8 @@ import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:provider/provider.dart';
 
 
 class OrderTrackingScreen extends StatefulWidget {
@@ -34,322 +40,138 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return
-      Scaffold(
-        backgroundColor: Color(0xffF3F3F3),
-        body: Stack(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  height: 110,
-                ),
-                Expanded(
-                  child:  Container(
-                    child: GoogleMap(
-                      onMapCreated: _onMapCreated,
-                      initialCameraPosition: CameraPosition(
-                        target: _center,
-                        zoom: 13.0,
-                      ),
+    return ChangeNotifierProvider<OrderSelectedVM>(
+        create: (context) => OrderSelectedVM(),
+        child: Consumer<OrderSelectedVM>(
+            builder: (context, model, child) =>
+            FutureBuilder<QuerySnapshot>(
+              future: model.getAllOrder(),
+                builder: (context,snapshots){
+                if(snapshots.hasData==null){
+                  return Container(
+                    color: Colors.white,
+                    child: Center(
+                      child: CircularProgressIndicator(),
                     ),
-                  ),
-                ),
-              ],
-            ),
-           isClose?Container() :Padding(
-              padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.45,
-              ),
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10.0),
-                  ),
-                ),
-                elevation: 1,
-                child: Container(
-                  color: Color(0xffffffff),
-                  height: 406,
-                  width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.only(
-                  ),
-                  margin: EdgeInsets.only(
-                      left: 20,
-                      right: 20
-                  ),
-                  child: ListView(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text('29 Janvier 2021 à 16:00',style: AppTextStyle.appBarHeader(
-                            color: Color(0xff222B45),
-                            size: 16.8,
-                            fontWeight: FontWeight.w400
-                          ),),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 35                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                         Row(
-                           mainAxisAlignment: MainAxisAlignment.start,
-                           children: [
-                             Container(
-                               height: 90,
-                               width: 10,
-                               decoration: BoxDecoration(
-                                 color: Colors.white,
-                                 image: DecorationImage(
-                                   image: AssetImage("assets/images/timeLine.png"),
-                                   fit: BoxFit.fill,
-                                 ),
-                               ),
-                             ),
-                             SizedBox(
-                               width: 20,
-                             ),
-                             Container(
-                               height: 100,
-                               child: Column(
-                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                 children: [
-                                   Text('38 Avenue du Château, 94300 Vincennes',style: AppTextStyle.appBarHeader(
-                                       color: Color(0xff042C5C),
-                                       size: 9.64,
-                                       fontWeight: FontWeight.w400
-                                   ),),
-                                   SizedBox(
-                                     height: 55,
-                                   ),
-                                   Text('97 Rue de Paris, 94220 Charenton le Pont',style: AppTextStyle.appBarHeader(
-                                       color: Color(0xff042C5C),
-                                       size: 8.64,
-                                       fontWeight: FontWeight.w400
-                                   ),),
-                                 ],
-                               ),
-                             ),
-                           ],
-                         )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        height: 2,
-                        width: MediaQuery.of(context).size.width,
-                        color: ChaliarColors.whiteGreyColor,
-                      ),
-                      Container(
-                         height: 95,
-                         width: MediaQuery.of(context).size.width,
-                         child: Row(
-                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                           children: [
-                             Row(
-                               children: [
-                                 Container(
-                                   height: 52,
-                                   width: 52,
-                                   decoration: BoxDecoration(
-                                     image: DecorationImage(
-                                       image: AssetImage("assets/images/profil_tracking.png"),
-                                       fit: BoxFit.fill,
-                                     ),
-                                   ),
-                                 ),
-                                 SizedBox(
-                                   width: 15,
-                                 ),
-                                 Column(
-                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                   children: [
-                                     SizedBox(
-                                       height: 10,
-                                     ),
-                                     Text('Evan Guzman',style: AppTextStyle.appBarHeader(
-                                       color: Color(0xff222B45),
-                                       size: 10.8,
-                                       fontWeight: FontWeight.w400,
-                                     ),),
-                                     Row(
-                                       mainAxisAlignment: MainAxisAlignment.start,
-                                       children: [
-                                         SvgPicture.asset(
-                                           SvgIcons.start,
-                                           height: 13,
-                                           width: 12,
-                                         ),
-                                         SizedBox(
-                                           width: 5,
-                                         ),
-                                         Text('4,8',style: AppTextStyle.appBarHeader(
-                                           color: Color(0xff222B45),
-                                           size: 7.92,
-                                           fontWeight: FontWeight.w400,
-                                         ),),
-                                         SizedBox(
-                                           width: 35,
-                                         ),
-                                       ],
-                                     ),
-                                     SizedBox(
-                                       height: 10,
-                                     ),
-                                   ],
-                                 )
-                               ],
-                             ),
-                             Column(
-                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                               children: [
-                                 SizedBox(
-                                   height: 5,
-                                 ),
-                                 Text('Un canapé',style: AppTextStyle.appBarHeader(
-                                   color: Color(0xff042C5C),
-                                   size: 13.64,
-                                   fontWeight: FontWeight.w400,
-                                 ),),
+                  );
+                }
+                print(snapshots.data!.docs.length);
+                List<DocumentSnapshot>documentSnapList=snapshots.data!.docs;
+                List<Order> orderList=[];
+                documentSnapList.forEach((element) {
+                  Map<String, dynamic> orderData = element.data() as Map<String, dynamic>;
+                  orderList.add(Order.fromJson(orderData));
+                });
+                List<Widget>orderWidgetList=[];
+                orderList.forEach((element) {
+                  orderWidgetList.add(
+                    OrderResumeWidgetCard(
+                      onTap: (){
+                        model.getAgendaPage(context, element.orderId!);
+                      },
+                      order: element,
+                    )
+                  );
+                });
 
-                                 Text('89\n€',style: AppTextStyle.appBarHeader(
-                                   color: Color(0xff222B45),
-                                   size: 16.8,
-                                   fontWeight: FontWeight.w400,
-                                 ),),
-                               ],
-                             )
-                           ],
-                         ),
-                       ),
-                      Container(
-                        height: 2,
-                        color: ChaliarColors.whiteGreyColor,
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                removeOrderToList(int id){
+                  orderWidgetList.removeAt(id);
+                  setState(() {
+                  });
+                }
+
+                return Scaffold(
+                  backgroundColor: Color(0xffF3F3F3),
+                  body: Stack(
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Center(
-                            child: ButtonChaliar(
-                                onTap: () {
-                                  Navigator.pushNamed(context, '/order_validate');
-                                },
-                                buttonText: 'ACCEPTER',
-                                height:49,
-                                mediaQueryWidth: 0.25,
-                                borderRaduis: 10,
-                                backgroundcolor: Color(0xffDE335C),
-                                bordercolor:  Color(0xffDE335C),
-                                textStyle: AppTextStyle.appBarHeader(
-                                  size: 8.64,
-                                    color: ChaliarColors.whiteColor)),
+                          Container(
+                            height: 110,
                           ),
-                          Center(
-                            child: ButtonChaliar(
-                                onTap: () {
-                                  setState(() {
-                                    isClose=true;
-                                  });
-                                },
-                                buttonText: 'REFUSER',
-                                height:49,
-                                mediaQueryWidth: 0.15,
-                                borderRaduis: 10,
-                                backgroundcolor: Color(0xffffffff),
-                                bordercolor:  Color(0xff042C5C),
-                                textStyle: AppTextStyle.appBarHeader(
-                                  size: 8.64,
-                                    color: Color(0xff042C5C))),
+                          Expanded(
+                            child:  Container(
+                              child: GoogleMap(
+                                onMapCreated: _onMapCreated,
+                                initialCameraPosition: CameraPosition(
+                                  target: _center,
+                                  zoom: 13.0,
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height: 20,
+
+                      Padding(padding: EdgeInsets.only(
+                       top: MediaQuery.of(context).size.height*0.45
                       ),
+                      child: CarouselSlider(
+                        options: CarouselOptions(
+                          enableInfiniteScroll: false,
+                          pageSnapping: false,
+                          disableCenter: true,
+                          height: 450.0,
+                          autoPlay: false,
+                          enlargeCenterPage: true,
+                        ),
+                        items:orderWidgetList,
+                      ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                        ),
+                        child: CustomHearder(
+                          title: 'Commande',
+                          description: '',
+                        ),
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(
+                            top:MediaQuery.of(context).size.height * 0.2,
+                            left:MediaQuery.of(context).size.width * 0.32,
+                            right:MediaQuery.of(context).size.width * 0.32,
+                          ),
+                          child:GestureDetector(
+                            onTap:(){
+                              print('circle clicked');
+                              setState(() {
+
+                              });
+                            },
+                            child: Container(
+                              height: 32,
+                              width: 183,
+                              decoration: BoxDecoration(
+                                color: Color(0xff042C5C),
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SizedBox(width: 5,),
+                                    Icon(Icons.arrow_forward_outlined,color: Colors.white,),
+                                    Text('Passer hors ligne',style: AppTextStyle.appBarHeader(
+                                        color: Colors.white,
+                                        size: 12,
+                                        fontWeight: FontWeight.w400
+                                    ),),
+                                    SizedBox(width: 5,),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          )
+                      )
                     ],
                   ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-              ),
-              child: CustomHearder(
-                title: 'Commande',
-                description: '',
-              ),
-            ),
-            isClose?Container() : Padding(
-                padding: EdgeInsets.only(
-                  top:MediaQuery.of(context).size.height * 0.43,
-                  left:MediaQuery.of(context).size.width * 0.8,
-                  right:MediaQuery.of(context).size.width * 0,
-                ),
-                child:GestureDetector(
-                  onTap:(){
-                    print('circle clicked');
-                    setState(() {
-                      isClose=true;
-                    });
-                  },
-                  child: CircleAvatar(
-                    radius: 25.0,
-                    backgroundColor: ChaliarColors.whiteColor,
-                    child: Icon(Icons.close_outlined,color: ChaliarColors.primaryColors,),
-                  ),
-                )
-            ),
+                );
+            })
+      ,
 
-            Padding(
-                padding: EdgeInsets.only(
-                  top:MediaQuery.of(context).size.height * 0.2,
-                  left:MediaQuery.of(context).size.width * 0.32,
-                  right:MediaQuery.of(context).size.width * 0.32,
-                ),
-                child:GestureDetector(
-                  onTap:(){
-                    print('circle clicked');
-                    setState(() {
-
-                    });
-                  },
-                  child: Container(
-                    height: 32,
-                    width: 183,
-                    decoration: BoxDecoration(
-                      color: Color(0xff042C5C),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(width: 5,),
-                          Icon(Icons.arrow_forward_outlined,color: Colors.white,),
-                          Text('Passer hors ligne',style: AppTextStyle.appBarHeader(
-                            color: Colors.white,
-                            size: 12,
-                            fontWeight: FontWeight.w400
-                          ),),
-                          SizedBox(width: 5,),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-            )
-          ],
-        ),
-      );
+        ),);
   }
 }
 

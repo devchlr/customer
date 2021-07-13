@@ -25,9 +25,13 @@ class InputField extends StatelessWidget {
   final bool? obscureText;
   final TextInputType? typeInput;
   final int? minlent;
-
+  final String? errorText;
+  final bool? readOnly;
   InputField(
-      {this.obscureText=false,
+      {
+        this.readOnly=false,
+        this.errorText,
+        this.obscureText=false,
         this.typeInput,
         this.placeholder,
       this.label,
@@ -55,6 +59,7 @@ class InputField extends StatelessWidget {
     return Container(
       width: 48.0,
       child: TextField(
+        readOnly: readOnly!,
         maxLengthEnforced: false,
         keyboardType: typeInput,
         obscureText: obscureText!,
@@ -64,17 +69,20 @@ class InputField extends StatelessWidget {
         onSubmitted: onSubmitted,
         controller: controller,
         autofocus: autofocus!,
-        style: AppTextStyle.header2(
-            color: textFillColor==null
-                ? ChaliarColors.blackColor
-                : textFillColor!),
+        style: AppTextStyle.appBarHeader(
+            fontWeight: FontWeight.w400,
+            size: 12,
+            color: ChaliarColors.secondaryColors),
         textAlignVertical: TextAlignVertical(y: 0.6),
         decoration: InputDecoration(
+          errorStyle: AppTextStyle.appBarHeader(
+            color: Colors.red,
+            size: 12,
+            fontWeight: FontWeight.w400
+          ),
+          errorText: errorText,
           border: isBorder!
-              ? OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(raduis!),
-                  borderSide: BorderSide(
-                      color: borderColor!, width: 0.5, style: BorderStyle.solid))
+              ? InputBorder.none
               : null,
           hintText: label == null ? 'label' : label,
           hintStyle: AppTextStyle.bodyfooterField(
@@ -92,10 +100,7 @@ class InputField extends StatelessWidget {
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           enabledBorder: isBorder!
-              ? OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(raduis!),
-                  borderSide: BorderSide(
-                      color: borderColor!, width: 0.5, style: BorderStyle.solid))
+              ? InputBorder.none
               : null,
           // isDense: true, // Added this
           contentPadding: EdgeInsets.only(

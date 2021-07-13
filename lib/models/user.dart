@@ -1,6 +1,8 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class UserChaliar {
-  final String? id;
+     String? id;
   final String? name;
   final String? surname;
   final String? email;
@@ -13,6 +15,7 @@ class UserChaliar {
   final String? siret;
   final String? societe;
   final String? password;
+  final String? profile_url;
 
   UserChaliar(
       {this.id,
@@ -28,7 +31,12 @@ class UserChaliar {
         this.street,
         this.societe,
         this.password,
+        this.profile_url,
       });
+
+  void setUserId(String id){
+    this.id=id;
+  }
 
   UserChaliar.fromData(Map<String, dynamic> data):
         id = data['id'],
@@ -37,13 +45,55 @@ class UserChaliar {
         email = data['email'],
         phone = data['phone'],
         street = data['street'],
-        facturationAdresse = data['facturationAdresse'],
-        codePostal = data['codePostal'],
+        facturationAdresse =data['facturation_adresse'],
+     codePostal = data['code_postal'],
         city = data['city'],
         siret=data['siret'],
         societe=data['societe'],
         password=data['password'],
+        profile_url=data['profile_url'],
         userRole = data['userRole'];
+
+
+
+   factory  UserChaliar.fromDocument(DocumentSnapshot data){
+       return UserChaliar(
+           id : data['id'],
+           name : data['name'],
+           surname : data['surname'],
+           email : data['email'],
+           phone : data['phone'],
+           street :data['street'],
+           facturationAdresse :data['facturation_adresse'],
+           codePostal : data['code_postal'],
+           city : data['city'],
+           siret:data['siret'],
+           societe:data['societe'],
+           password:data['password'],
+           userRole : data['userRole'],
+         profile_url: data['profile_url']
+       );
+     }
+
+
+     factory  UserChaliar.fromMap(Map data){
+       return UserChaliar(
+           id : data['id'],
+           name : data['name'],
+           surname : data['surname'],
+           email : data['email'],
+           phone : data['phone'],
+           street :data['street'],
+           facturationAdresse :data['facturation_adresse'],
+           codePostal : data['code_postal'],
+           city : data['city'],
+           siret:data['siret'],
+           societe:data['societe'],
+           password:data['password'],
+           userRole : data['userRole'],
+         profile_url: data['profile_url'],
+       );
+     }
 
   Map<String, dynamic> toJson() {
     return {
@@ -59,7 +109,8 @@ class UserChaliar {
       'city': city,
       'siret':siret,
       'societe':societe,
-      'password':password
+      'password':password,
+      'profile_url':profile_url
     };
   }
 }

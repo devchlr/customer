@@ -1,3 +1,6 @@
+import 'package:chaliar_delivery_app/model_views/order/order_validateVM.dart';
+import 'package:chaliar_delivery_app/models/commande.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
@@ -7,10 +10,14 @@ import 'package:chaliar_delivery_app/ui/widgets/button.dart';
 import 'package:chaliar_delivery_app/ui/widgets/custom_header.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 
 class OrderValidateScreen extends StatefulWidget {
   FirebaseAuth _auth =FirebaseAuth.instance;
+  String? orderId;
+  OrderValidateScreen({this.orderId});
   @override
   _OrderValidateScreenState createState() => _OrderValidateScreenState();
 }
@@ -34,9 +41,29 @@ class _OrderValidateScreenState extends State<OrderValidateScreen> {
   @override
   Widget build(BuildContext context) {
     return
+      ChangeNotifierProvider<OrderValidateVM>(
+          create: (context) => OrderValidateVM(),
+          child: Consumer<OrderValidateVM>(
+              builder: (context, model, child) =>
       Scaffold(
         backgroundColor: Color(0xffF3F3F3),
-        body: Stack(
+        body:
+        FutureBuilder<DocumentSnapshot>(
+    future: model.getOrderInformation(widget.orderId!),
+    builder: (context, snapshot){
+    if(snapshot.connectionState!=ConnectionState.done){
+          return Container(
+          child: Center(
+          child: CircularProgressIndicator(color: Colors.blue,),
+          ),
+          );
+    }
+    Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+    var order=Order.fromJson(data);
+    var deliveryInformation=OrderDeliveryInformation.fromJson(order.deliveryInformation!);
+    String month=DateFormat('dd-MMMM-yyyy').format(deliveryInformation.delivery_date!);
+    String hour=DateFormat('kk:mm').format(deliveryInformation.delivery_schedule!);
+        return Stack(
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -83,7 +110,7 @@ class _OrderValidateScreenState extends State<OrderValidateScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('29 Janvier 2021 à 16:00',style: AppTextStyle.appBarHeader(
+                          Text('${month} à ${hour}',style: AppTextStyle.appBarHeader(
                               color: Color(0xff222B45),
                               size: 16.8,
                               fontWeight: FontWeight.w400
@@ -106,7 +133,8 @@ class _OrderValidateScreenState extends State<OrderValidateScreen> {
                           Center(
                             child: ButtonChaliar(
                                 onTap: () {
-                                  Navigator.pushNamed(context, '/recapt_order');
+                                  model.getRecaptOrder(context, widget.orderId!);
+                                  // Navigator.pushNamed(context, '/recapt_order');
                                 },
                                 buttonText: 'AJOUTER À MON AGENDA',
                                 height:49,
@@ -139,8 +167,8 @@ class _OrderValidateScreenState extends State<OrderValidateScreen> {
               ),
             ),
           ],
-        ),
-      );
+        );})
+      ),));
   }
 }
 

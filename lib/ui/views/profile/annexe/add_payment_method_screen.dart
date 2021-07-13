@@ -30,9 +30,9 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width*0.3,),
                 SizedBox(height: 61,),
-               Center(
-                 child: Image.asset('assets/images/methodpayement_method.png'),
-               ),
+                Center(
+                  child: Image.asset('assets/images/methodpayement_method.png'),
+                ),
                 Expanded(child:VisaPaymentForm(),)
               ],
             ),

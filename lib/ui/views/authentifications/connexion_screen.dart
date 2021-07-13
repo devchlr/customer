@@ -6,11 +6,10 @@ import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
 import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
 import 'package:chaliar_delivery_app/ui/widgets/button.dart';
 import 'package:chaliar_delivery_app/ui/widgets/custom_textField_card.dart';
-import 'package:chaliar_delivery_app/ui/widgets/input_field.dart';
+import 'package:chaliar_delivery_app/ui/widgets/loading.dart';
 import 'package:chaliar_delivery_app/ui/widgets/svg_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 
@@ -29,100 +28,101 @@ class _SingInScreenState extends State<SingInScreen> {
       child: Consumer<AuthentificationConnexionVM>(
         builder: (context, model, child) =>
             Scaffold(
-              resizeToAvoidBottomInset: true,
-              body: Stack(
-                fit: StackFit.expand,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/blueGrad.png"),
-                        fit: BoxFit.cover,
+                resizeToAvoidBottomInset: true,
+                body: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("assets/images/blueGrad.png"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  ListView(
-
-                    children: [
-
-                              SizedBox(
-                                height: 59,
-                              ),
-                              Center(
-                                child: SvgPicture.asset(
-                                  "assets/images/logo.svg",
-                                  height: 120,
-                                  width: 120,
+                    ListView(
+                        padding: EdgeInsets.only(
+                            top: 50
+                        ),
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Center(
+                            child: SvgPicture.asset(
+                              "assets/images/logo.svg",
+                              height: 120,
+                              width: 120,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 43,
+                          ),
+                          Center(child:  Text.rich(
+                            TextSpan(
+                              text: "Contents de vous revoir",
+                              style: AppTextStyle.headerApp1(color: ChaliarColors.whiteColor),
+                            ),
+                          ),),
+                          SizedBox(
+                            height: 29,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.width * 0.1,
+                                right: MediaQuery.of(context).size.width * 0.1),
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(50),
+                                ),),
+                              child: Container(
+                                height: 60,
+                                child: ListTile(
+                                  title:
+                                  InternationalPhoneNumberInput(
+                                    spaceBetweenSelectorAndTextField: 0,
+                                    onInputChanged: (PhoneNumber number) {
+                                      model.phone=number.phoneNumber;
+                                      print(number.phoneNumber);
+                                    },
+                                    initialValue: number,
+                                    onInputValidated: (bool value) {
+                                      print(value);
+                                    },
+                                    selectorConfig: SelectorConfig(
+                                      selectorType: PhoneInputSelectorType.DIALOG,
+                                    ),
+                                    ignoreBlank: false,
+                                    inputDecoration: new InputDecoration(
+                                      border: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      disabledBorder: InputBorder.none,
+                                      contentPadding:
+                                      EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                                      hintText: 'Telephone',
+                                    ),
+                                    autoValidateMode: AutovalidateMode.disabled,
+                                    selectorTextStyle: TextStyle(color: Colors.black),
+                                    textFieldController: model.phoneNumber,
+                                    formatInput: false,
+                                    keyboardType:
+                                    TextInputType.numberWithOptions(
+                                        signed: true,
+                                        decimal: true
+                                    ),
+                                    onSaved: (PhoneNumber number) {
+                                      print('On Saved: $number');
+                                    },
+                                  ),
                                 ),
                               ),
-                              SizedBox(
-                                height: 63,
-                              ),
-                             Center(child:  Text.rich(
-                               TextSpan(
-                                 text: "Contents de vous revoir",
-                                 style: AppTextStyle.headerApp1(color: ChaliarColors.whiteColor),
-                               ),
-                             ),),
-                      SizedBox(
-                        height: 39,
-                      ),
-                         Padding(
-                            padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width * 0.1,
-                            right: MediaQuery.of(context).size.width * 0.1),
-                           child: Card(
-                             shape: RoundedRectangleBorder(
-                               borderRadius: BorderRadius.all(
-                                 Radius.circular(50),
-                               ),),
-                             child: Container(
-                               height: 60,
-                               child: ListTile(
-                                 title:
-                                 InternationalPhoneNumberInput(
-                                   spaceBetweenSelectorAndTextField: 0,
-                                   onInputChanged: (PhoneNumber number) {
-                                     model.phone=number.phoneNumber;
-                                     print(number.phoneNumber);
-                                   },
-                                   initialValue: number,
-                                   onInputValidated: (bool value) {
-                                     print(value);
-                                   },
-                                   selectorConfig: SelectorConfig(
-                                     selectorType: PhoneInputSelectorType.DIALOG,
-                                   ),
-                                   ignoreBlank: false,
-                                   inputDecoration: new InputDecoration(
-                                     border: InputBorder.none,
-                                     focusedBorder: InputBorder.none,
-                                     enabledBorder: InputBorder.none,
-                                     errorBorder: InputBorder.none,
-                                     disabledBorder: InputBorder.none,
-                                     contentPadding:
-                                     EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-                                     hintText: 'Telephone',
-                                   ),
-                                   autoValidateMode: AutovalidateMode.disabled,
-                                   selectorTextStyle: TextStyle(color: Colors.black),
-                                   textFieldController: model.phoneNumber,
-                                   formatInput: false,
-                                   keyboardType:
-                                   TextInputType.numberWithOptions(
-                                       signed: true,
-                                       decimal: true
-                                   ),
-                                   onSaved: (PhoneNumber number) {
-                                     print('On Saved: $number');
-                                   },
-                                 ),
-                               ),
-                             ),
-                           ),
-                         ),
+                            ),
+                          ),
                           SizedBox(
-                            height: 23,
+                            height: 20,
                           ),
                           Padding(
                             padding: EdgeInsets.only(
@@ -148,8 +148,12 @@ class _SingInScreenState extends State<SingInScreen> {
                             ),
                           ),
                           SizedBox(
-                            height:23,
+                            height:20,
                           ),
+                          model.loading?LoadingForm(
+                            bgColor: Colors.white,
+                          ):Container(),
+                          model.loading?SizedBox(height:20,):Container(),
                           GestureDetector(
                             onTap: () {},
                             child: Container(
@@ -167,7 +171,7 @@ class _SingInScreenState extends State<SingInScreen> {
                             ),
                           ),
                           SizedBox(
-                            height: 39,
+                            height: 29,
                           ),
                           Padding(
                             padding: EdgeInsets.only(
@@ -206,15 +210,15 @@ class _SingInScreenState extends State<SingInScreen> {
                               ),
                             ),
                           ),
-                      SizedBox(
-                        height: 146,
-                      ),
+                          SizedBox(
+                            height: 146,
+                          ),
                         ]),
 
-                    ],
-                  )
-              ),
-            ),);
+                  ],
+                )
+            ),
+      ),);
   }
 }
 

@@ -1,11 +1,18 @@
+import 'package:chaliar_delivery_app/model_views/order/order_recapVM.dart';
+import 'package:chaliar_delivery_app/models/adress.dart';
+import 'package:chaliar_delivery_app/models/commande.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
 import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
 import 'package:chaliar_delivery_app/ui/widgets/button.dart';
+import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 
 class OrderRecaptScreen extends StatefulWidget {
-  const OrderRecaptScreen({Key? key}) : super(key: key);
+  String? orderId;
+  OrderRecaptScreen({Key? key,this.orderId}) : super(key: key);
 
   @override
   _OrderRecaptScreenState createState() => _OrderRecaptScreenState();
@@ -14,7 +21,31 @@ class OrderRecaptScreen extends StatefulWidget {
 class _OrderRecaptScreenState extends State<OrderRecaptScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+      ChangeNotifierProvider<OrderRecaptVM>(
+          create: (context) => OrderRecaptVM(),
+          child: Consumer<OrderRecaptVM>(
+              builder: (context, model, child) =>
+          FutureBuilder<DocumentSnapshot>(
+          future: model.getOrderInformation(widget.orderId!),
+    builder: (context, snapshot){
+    if(snapshot.connectionState!=ConnectionState.done){
+        return Container(
+          child: Center(
+            child: CircularProgressIndicator(color: Colors.blue,),
+          ),
+        );
+      }
+    Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+    var order=Order.fromJson(data);
+    var deliveryInformation=OrderDeliveryInformation.fromJson(order.deliveryInformation!);
+    var packageInfornation=OrderPackageInformation.fromJson(order.packageInformation!);
+    var recipientInformation=OrderRecipientInformation.fromJson(order.recipientInformation!);
+    AdressLocalisation departAdress=deliveryInformation.departure_address!;
+    AdressLocalisation arrivalAdress=recipientInformation.arrival_address!;
+    String month=DateFormat('dd-MMMM-yyyy').format(deliveryInformation.delivery_date!);
+    String hour=DateFormat('kk:mm').format(deliveryInformation.delivery_schedule!);
+     return Scaffold(
       appBar: AppBar(
         leading: Text(''),
         backgroundColor: Color(0xffC5385A),
@@ -27,112 +58,106 @@ class _OrderRecaptScreenState extends State<OrderRecaptScreen> {
         ),
         centerTitle: true,
       ),
-      body: Stack(
-        children: [
-          Container(
-            color: Color(0xffDE335C),
-          ),
-          Container(
-            padding: EdgeInsets.only(
-              left: MediaQuery.of(context).size.width*0.05,
-                right: MediaQuery.of(context).size.width*0.05
+      backgroundColor: Color(0xffDE335C),
+      body:  Padding(
+        padding: EdgeInsets.only(
+          left: 20,
+          right: 20
+        ),
+        child: ListView(
+          children: [
+            SizedBox(
+              height: 53,
             ),
-            child: ListView(
-              children: [
-                SizedBox(
-                  height: 53,
-                ),
-                Text(
-                  '29 Janvier 2021 à 16:00',
-                  style: AppTextStyle.appBarHeader(
+            Center(
+              child: Text(
+                '${month} à ${hour}',
+                style: AppTextStyle.appBarHeader(
                     size: 21.8,
                     color: Colors.white,
                     fontWeight: FontWeight.bold
-                  ),
                 ),
-                SizedBox(
-                  height: 35,
-                ),
-                Text(
-                  'DÉPART',
-                  style: AppTextStyle.appBarHeader(
-                      size: 21.8,
-                      color: Color(0xffA31335),
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                SizedBox(
-                  height: 18,
-                ),
-                Container(
-                  width: 100,
-                  child: Text(
-                    '38 Avenue du Château, \n94300 Vincennes',
-                    style: AppTextStyle.appBarHeader(
-                        size: 15,
-                        color: Color(0xffffffff),
-                        fontWeight: FontWeight.w400
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 35,
-                ),
-                Text(
-                  'ARRIVÉE',
-                  style: AppTextStyle.appBarHeader(
-                      size: 21.8,
-                      color: Color(0xffA31335),
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                SizedBox(
-                  height: 18,
-                ),
-                Container(
-                  width: 100,
-                  child: Text(
-                    '38 Avenue du Château, \n94300 Vincennes',
-                    style: AppTextStyle.appBarHeader(
-                        size: 15,
-                        color: Color(0xffffffff),
-                        fontWeight: FontWeight.w400
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 35,
-                ),
-                Text(
-                  'TARIF',
-                  style: AppTextStyle.appBarHeader(
-                      size: 21.8,
-                      color: Color(0xffA31335),
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                SizedBox(
-                  height: 18,
-                ),
-                Container(
-                  width: 100,
-                  child: Text(
-                    '89€ TTC',
-                    style: AppTextStyle.appBarHeader(
-                        size: 15,
-                        color: Color(0xffffffff),
-                        fontWeight: FontWeight.w400
-                    ),
-                  ),
-                )
-              ],
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.6,
+            SizedBox(
+              height: 35,
             ),
-            child: Card(
+            Text(
+              'DÉPART',
+              style: AppTextStyle.appBarHeader(
+                  size: 21.8,
+                  color: Color(0xffA31335),
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            Container(
+              width: 100,
+              child: Text(
+                '${departAdress.description}',
+                style: AppTextStyle.appBarHeader(
+                    size: 15,
+                    color: Color(0xffffffff),
+                    fontWeight: FontWeight.w400
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 35,
+            ),
+            Text(
+              'ARRIVÉE',
+              style: AppTextStyle.appBarHeader(
+                  size: 21.8,
+                  color: Color(0xffA31335),
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            Container(
+              width: 100,
+              child: Text(
+                '${arrivalAdress.description}',
+                style: AppTextStyle.appBarHeader(
+                    size: 15,
+                    color: Color(0xffffffff),
+                    fontWeight: FontWeight.w400
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 35,
+            ),
+            Text(
+              'TARIF',
+              style: AppTextStyle.appBarHeader(
+                  size: 21.8,
+                  color: Color(0xffA31335),
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            Container(
+              width: 100,
+              child: Text(
+                '${order.order_price!.toStringAsFixed(3)}€ TTC',
+                style: AppTextStyle.appBarHeader(
+                    size: 15,
+                    color: Color(0xffffffff),
+                    fontWeight: FontWeight.w400
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Card(
               shape: RoundedRectangleBorder(
                 borderRadius: const BorderRadius.all(
                   Radius.circular(10.0),
@@ -149,7 +174,7 @@ class _OrderRecaptScreenState extends State<OrderRecaptScreen> {
                     left: 20,
                     right: 20
                 ),
-                child: ListView(
+                child: Column(
                   children: [
                     SizedBox(
                       height: 21,
@@ -158,7 +183,9 @@ class _OrderRecaptScreenState extends State<OrderRecaptScreen> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         GestureDetector(
-                          onTap: (){},
+                          onTap: (){
+                            model.cancelOrder(context, widget.orderId!);
+                          },
                           child: Container(
                             height: 28,
                             width: 145,
@@ -168,9 +195,9 @@ class _OrderRecaptScreenState extends State<OrderRecaptScreen> {
                             ),
                             child: Center(
                               child: Text('ANNULER LA COURSE',style: AppTextStyle.appBarHeader(
-                                color: Colors.black,
-                                size: 10.75,
-                                fontWeight: FontWeight.w400
+                                  color: Colors.black,
+                                  size: 10.75,
+                                  fontWeight: FontWeight.w400
                               ),),
                             ),
                           ),
@@ -183,7 +210,7 @@ class _OrderRecaptScreenState extends State<OrderRecaptScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('LIVRER: UN CANAPÉ',style: AppTextStyle.appBarHeader(
+                        Text('LIVRER: ${packageInfornation.package_nature}',style: AppTextStyle.appBarHeader(
                             color: Color(0xff222B45),
                             size: 16.8,
                             fontWeight: FontWeight.w400
@@ -206,11 +233,11 @@ class _OrderRecaptScreenState extends State<OrderRecaptScreen> {
                         Center(
                           child: ButtonChaliar(
                               onTap: () {
-                                Navigator.pushNamed(context, '/order_live_tracking');
+                                model.getLiveTrackingOrder(context, widget.orderId!);
                               },
                               buttonText: 'DÉMARRER LA COURSE',
                               height:43,
-                              mediaQueryWidth: 0.4,
+                              mediaQueryWidth: 0.35,
                               borderRaduis: 10,
                               backgroundcolor: Color(0xffDE335C),
                               bordercolor:  Color(0xffDE335C),
@@ -227,10 +254,11 @@ class _OrderRecaptScreenState extends State<OrderRecaptScreen> {
                   ],
                 ),
               ),
-            ),
-          ),
-        ],
-      ),
-    );
+            )
+          ],
+        ),
+      )
+    );}
+    ),),);
   }
 }

@@ -26,11 +26,11 @@ class _VisaPaymentFormState extends State<VisaPaymentForm> {
         ),
         Center(
           child: Text(
-              'AJOUTER UN MOYEN DE PAIEMENT',
+            'AJOUTER UN MOYEN DE PAIEMENT',
             style: AppTextStyle.appBarHeader(
-              fontWeight: FontWeight.w400,
-              size: 14,
-              color: Color(0xff042C5C)
+                fontWeight: FontWeight.w400,
+                size: 14,
+                color: Color(0xff042C5C)
             ),
           ),
         ),

@@ -1,33 +1,30 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:chaliar_delivery_app/constants/iconList.dart';
 import 'package:chaliar_delivery_app/model_views/profile/home_profileMV.dart';
+import 'package:chaliar_delivery_app/models/user.dart';
 import 'package:chaliar_delivery_app/ui/styles/chaliar_color.dart';
 import 'package:chaliar_delivery_app/ui/styles/chaliar_font.dart';
 import 'package:chaliar_delivery_app/ui/styles/text_style.dart';
 import 'package:chaliar_delivery_app/ui/widgets/custom_botom_navigation_bar.dart';
 import 'package:chaliar_delivery_app/ui/widgets/profile_listTile.dart';
 import 'package:chaliar_delivery_app/ui/widgets/svg_button.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 class HomeProfileScreen extends StatefulWidget {
-
-  HomeProfileScreen({Key? key}) : super(key: key);
+  HomeProfileScreen({Key? key,}) : super(key: key);
   @override
   _HomeProfileScreenState createState() => _HomeProfileScreenState();
 }
 
 class _HomeProfileScreenState extends State<HomeProfileScreen> {
-  HomeProfileMV homeProfileMV=HomeProfileMV();
-
-  void initState() {
+  void initState(){
     super.initState();
-    getU();
   }
-  void getU(){
-     homeProfileMV.getUser();
-  }
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<HomeProfileMV>(
@@ -44,7 +41,7 @@ class _HomeProfileScreenState extends State<HomeProfileScreen> {
           Column(
             children: [
               Container(
-                height: 310,
+                height: 410,
                 decoration: BoxDecoration(
                   color: Color(0xffF3F3F3),
                   image: DecorationImage(
@@ -61,18 +58,32 @@ class _HomeProfileScreenState extends State<HomeProfileScreen> {
           Column(
             children: [
               Container(
-                height: 310,
+                height: 410,
                 child: ListView(
                 children: [
                   SizedBox(
                     height: 30,
                   ),
-                  Center(
-                    child: CircleAvatar(
-                      backgroundColor: Colors.transparent,
-                      radius: 80,
-                      backgroundImage: AssetImage('assets/images/profileInage.png'),
-                    ),
+                  FutureBuilder(
+                    future:model.getUserD(),
+                    builder: (context,AsyncSnapshot<DocumentSnapshot>snapshot){
+                      if(snapshot.connectionState!=ConnectionState.done){
+                        return CircularProgressIndicator();
+                      }
+                      if(!snapshot.hasData) return CircularProgressIndicator();
+                      print(snapshot.data);
+                      Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+                      var user=UserChaliar.fromData(data);
+                      return user.profile_url!=null?  CircleAvatar(
+                        backgroundImage:NetworkImage(user.profile_url.toString()),
+                        backgroundColor: Colors.transparent,
+                        radius: 80,
+                      ):CircleAvatar(
+                        backgroundImage:AssetImage('assets/images/profileInage.png'),
+                        backgroundColor: Colors.transparent,
+                        radius: 80,
+                      );
+                    },
                   ),
                   SizedBox(
                     height: 20,
@@ -81,18 +92,86 @@ class _HomeProfileScreenState extends State<HomeProfileScreen> {
                     padding: EdgeInsets.only(
                       right: MediaQuery.of(context).size.width*0.1
                     ),
-                    child: Center(
-                      child: Text(
-                        '${model.currentUser?.surname==null?'Victor ':model.currentUser?.surname}\n${model.currentUser?.name==null?'Williams':model.currentUser?.name}',
-                        textAlign: TextAlign.left,
-                        style: AppTextStyle.appBarHeader(
-                            size: 19,
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.bold,
-                            fontFamily: AppFontFamilly.montserrat
-                        ),
+                    child:
+                    Center(
+                      child: FutureBuilder(
+                        future:model.getUserD(),
+                        builder: (context,AsyncSnapshot<DocumentSnapshot>snapshot){
+                          if(snapshot.connectionState!=ConnectionState.done){
+                            return CircularProgressIndicator();
+                          }
+                          if(!snapshot.hasData) return CircularProgressIndicator();
+                          print(snapshot.data);
+                          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+                             return Text(
+                               '${data['surname']}\n${data['name']}',
+                               textAlign: TextAlign.left,
+                               style: AppTextStyle.appBarHeader(
+                                   size: 19,
+                                   color: Color(0xffffffff),
+                                   fontWeight: FontWeight.bold,
+                                   fontFamily: AppFontFamilly.montserrat
+                               ),
+                             );
+                        },
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Center(
+                            child: SvgPicture.asset(
+                              "assets/icons/noun_Scooter.svg",
+                              color: ChaliarColors.secondaryColors,
+                              height: 23,
+                              width: 38,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Center(
+                            child: Text('19 courses',style: AppTextStyle.appBarHeader(
+                                color: Colors.white,
+                                fontFamily: AppFontFamilly.avenirNext,
+                                size: 16,
+                                fontWeight: FontWeight.w400
+                            ),),
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Center(
+                            child: SvgPicture.asset(
+                              "assets/icons/credit-card.svg",
+                              color: ChaliarColors.secondaryColors,
+                              height: 23,
+                              width: 38,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Center(
+                            child: Text('1260€ de C.A',style: AppTextStyle.appBarHeader(
+                                color: Colors.white,
+                                fontFamily: AppFontFamilly.avenirNext,
+                                size: 16,
+                                fontWeight: FontWeight.w400
+                            ),),
+                          )
+                        ],
+                      )
+                    ],
                   )
                 ],
               ),
@@ -105,6 +184,9 @@ class _HomeProfileScreenState extends State<HomeProfileScreen> {
                       right: MediaQuery.of(context).size.width*0.08
                     ),
                     child:  ListView(
+                      padding: EdgeInsets.only(
+                        top: 10
+                      ),
                       children: [
                         Padding(padding: EdgeInsets.only(
                           left: 5,
@@ -130,7 +212,7 @@ class _HomeProfileScreenState extends State<HomeProfileScreen> {
                         SizedBox(
                           height: 13.0,
                         ),
-                        CustomProfileListTile(title:'Revenus',
+                        CustomProfileListTile(title:'Facturation',
                           iconAsset:SvgIcons.invoice,onTap:(){
                           model.getPageByName(context, '/home_facturation');
                           },),

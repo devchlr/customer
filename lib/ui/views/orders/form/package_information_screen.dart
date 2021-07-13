@@ -14,9 +14,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class TailleColisScreen extends StatefulWidget {
-OrderDeliveryInformation? deliveryInformation;
-OrderRecipientInformation? recipientInformation;
-TailleColisScreen({this.deliveryInformation,this.recipientInformation});
+  OrderDeliveryInformation? deliveryInformation;
+  OrderRecipientInformation? recipientInformation;
+  double?km_distance;
+  TailleColisScreen({this.deliveryInformation,this.recipientInformation,this.km_distance});
 
   @override
   _TailleColisScreenState createState() => _TailleColisScreenState();

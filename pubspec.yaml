@@ -63,6 +63,8 @@ dependencies:
   geocoder: ^0.2.1
   geolocator: ^7.2.0+1
   signature: ^4.1.1
+  file_picker: ^3.0.3
+  location: ^4.3.0
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +85,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/icons/facture/
+    - assets/images/marker/
     - fonts/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

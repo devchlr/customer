@@ -14,11 +14,11 @@ class OnboardingPageWidget extends StatelessWidget {
   final VoidCallback? onTap;
   OnboardingPageWidget(
       {this.imageAsset,
-        this.title,
-        this.subTitle,
-        this.buttonText,
-        this.buildPageIndicator,
-        this.onTap});
+      this.title,
+      this.subTitle,
+      this.buttonText,
+      this.buildPageIndicator,
+      this.onTap});
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -38,7 +38,7 @@ class OnboardingPageWidget extends StatelessWidget {
             ),
           ),
           Container(
-            height: 250,
+            height: 500,
             decoration: BoxDecoration(
               color: ChaliarColors.whiteColor,
               borderRadius: BorderRadius.only(
@@ -48,7 +48,7 @@ class OnboardingPageWidget extends StatelessWidget {
             ),
             margin: EdgeInsets.only(
               top:  MediaQuery.of(context).size.height * 0.58,
-            ),
+              ),
             child:
             Column(
               children: <Widget>[

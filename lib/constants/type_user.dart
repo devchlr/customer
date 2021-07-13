@@ -1,4 +1,3 @@
-
 class TypeUser{
   static const String velo = 'velo';
   static const String scooter = 'scooter';

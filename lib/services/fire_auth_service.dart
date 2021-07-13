@@ -2,18 +2,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class FireAuthService{
   FirebaseAuth auth = FirebaseAuth.instance;
-  Future signInWithEmailAndPassword(String email, String password)async{
+  Future<String?> signInWithEmailAndPassword(String email, String password)async{
     try {
-      UserCredential userCredential = await auth.signInWithEmailAndPassword(
+      await auth.signInWithEmailAndPassword(
           email: email,
           password: password
       );
+      return '200';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-        registerByEmailandPassword(email, password);
+        return 'No user found for that email.';
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+        return 'Wrong password provided for that user.';
       }
     }
   }
