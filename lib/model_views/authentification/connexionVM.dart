@@ -1,7 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:chaliar_delivery_app/model_views/base_model.dart';
 import 'package:chaliar_delivery_app/services/fire_auth_service.dart';
 import 'package:chaliar_delivery_app/services/fire_store_service.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chaliar_delivery_app/services/preferences/shared_preference_service.dart';
 import 'package:chaliar_delivery_app/ui/views/orders/home_order_screen.dart';
@@ -22,9 +22,23 @@ class AuthentificationConnexionVM extends BaseModel{
   bool loading=false;
   bool inputVerification(){
     if(phoneNumber.text==null || phoneNumber.text.isEmpty){
+      customShowSnackBar.showDialogError(context: context,
+          titleDialog: 'Erreur Formulaire',
+          errorDescription: 'Le champs telephone est mal renseigner',
+          errorSolution: 'le champ telephone admet une chaine de carracteres d\'un minimum de 09 carractes et n\'est constituer que des symbole [0-9]'
+      );
+      loading=false;
+      notifyListeners();
       return false;
     }
     if(password.text==null || password.text.isEmpty){
+      customShowSnackBar.showDialogError(context: context,
+          titleDialog: 'Erreur Formulaire',
+          errorDescription: 'Le champs Mot de passe est mal renseigner',
+          errorSolution: 'le champ Mot de passe admet une chaine de carracteres a un minimun de 8 carrecter chiffres et lettres compris et au minimun un carractere special'
+      );
+      loading=false;
+      notifyListeners();
       return false;
     }
     return true;
@@ -46,13 +60,19 @@ class AuthentificationConnexionVM extends BaseModel{
         var singIng=  _fireAuthService.signInWithEmailAndPassword(userResult['email'], password.text);
         singIng.then((value)async{
           var user= auth.currentUser;
-          print(auth.currentUser!.uid);
-          if(user!=null&& (userResult['userRole']!='particulier'||userResult['userRole']!='professionnel')){
-            await sharedPreferenceService.setRegisterPreferenceInformation(userResult['id'], phone!).then((val) {
+          if(user!=null ){
+            if(userResult['userRole']=='livreur'){
+              await sharedPreferenceService.setRegisterPreferenceInformation(userResult['id'], phone!).then((val) {
+                loading=false;
+                notifyListeners();
+                getOPTScreen(context);});
+            }else{
               loading=false;
               notifyListeners();
-              getOPTScreen(context);
-            });
+              customShowSnackBar.showDialogError(context: context,titleDialog: 'L\'utilisateur n\'est pas inscript comme livreur',errorDescription: 'bien vouloir creer un compte utilisateur pour utiliser ce compte');
+            }
+
+
           }else{
             loading=false;
             notifyListeners();
@@ -62,6 +82,10 @@ class AuthentificationConnexionVM extends BaseModel{
         });
 
       }
+    }else{
+      loading=false;
+      notifyListeners();
+      customShowSnackBar.showDialogError(context: context,titleDialog: 'tous les champs doivent etres renseigne');
     }
   }
 

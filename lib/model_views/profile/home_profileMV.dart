@@ -35,7 +35,8 @@ void sharedApp(){
 
 getUserD(){
   var user = auth.currentUser;
-    return firestoreService.getUserFuture(user!.uid);
+  print(user!.uid);
+    return firestoreService.getUserFuture(user.uid);
 }
 
 

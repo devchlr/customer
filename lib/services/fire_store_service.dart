@@ -3,7 +3,7 @@ import 'package:chaliar_delivery_app/models/user.dart';
 
 class FirestoreService {
   final CollectionReference _usersCollectionReference =
-      FirebaseFirestore.instance.collection("users");
+  FirebaseFirestore.instance.collection("users");
 
   Future createUser(UserChaliar user) async {
     try {
@@ -20,7 +20,7 @@ class FirestoreService {
   }
 
   Future getUser(String uid) async {
-      return await _usersCollectionReference.doc(uid).get();
+    return await _usersCollectionReference.doc(uid).get();
 
   }
 
@@ -31,11 +31,7 @@ class FirestoreService {
   }
 
 
-   getUserFuture(String uid){
-    return  _usersCollectionReference.doc(uid).get();
-  }
-
-  getUserFutureD(String uid){
+  getUserFuture(String uid){
     return  _usersCollectionReference.doc(uid).get();
   }
 
