@@ -71,7 +71,7 @@ class _OrderResumeWidgetCardState extends State<OrderResumeWidgetCard> {
                           color: Color(0xffffffff),
                         ),
                         height: 406,
-                        width: MediaQuery.of(context).size.width,
+                        width: MediaQuery.of(context).size.width*0.8,
                         padding: EdgeInsets.only(
                             top: 10,
                             bottom: 10,
@@ -98,52 +98,44 @@ class _OrderResumeWidgetCardState extends State<OrderResumeWidgetCard> {
                             SizedBox(
                                 height: 15),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      height: 90,
-                                      width: 10,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                          image: AssetImage("assets/images/timeLine.png"),
-                                          fit: BoxFit.fill,
+                                Container(
+                                  height: 90,
+                                  width: 10,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/timeLine.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  height: 100,
+                                  child:
+                                  Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Text('${departAdress.description}',textAlign: TextAlign.center,style: AppTextStyle.appBarHeader(
+                                            color: Color(0xff042C5C),
+                                            size: 9.64,
+                                            fontWeight: FontWeight.w400
+                                        ),),
+                                        SizedBox(
+                                          height: 55,
                                         ),
-                                      ),
+                                        Text('${arrivalAdress.description}',textAlign: TextAlign.center,style: AppTextStyle.appBarHeader(
+                                            color: Color(0xff042C5C),
+                                            size: 8.64,
+                                            fontWeight: FontWeight.w400
+                                        ),),
+                                      ],
                                     ),
-                                    SizedBox(
-                                      width: 0,
-                                    ),
-                                    Container(
-                                      height: 100,
-                                      child:
-                                      Container(
-                                        width: MediaQuery.of(context).size.width,
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Text('${departAdress.description}',textAlign: TextAlign.center,style: AppTextStyle.appBarHeader(
-                                                color: Color(0xff042C5C),
-                                                size: 9.64,
-                                                fontWeight: FontWeight.w400
-                                            ),),
-                                            SizedBox(
-                                              height: 55,
-                                            ),
-                                            Text('${arrivalAdress.description}',textAlign: TextAlign.center,style: AppTextStyle.appBarHeader(
-                                                color: Color(0xff042C5C),
-                                                size: 8.64,
-                                                fontWeight: FontWeight.w400
-                                            ),),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
+                                  ),
+                                ),
                               ],
                             ),
                             SizedBox(

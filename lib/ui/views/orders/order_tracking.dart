@@ -73,7 +73,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                     )
                   );
                 });
-
                 removeOrderToList(int id){
                   orderWidgetList.removeAt(id);
                   setState(() {

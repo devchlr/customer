@@ -13,6 +13,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'Dart:ui' as ui;
+import 'package:location/location.dart';
 
 class OrderLiveTrackingMV extends BaseModel{
   DataBaseApi orderDatabase=DataBaseApi('orders');
@@ -30,6 +31,15 @@ class OrderLiveTrackingMV extends BaseModel{
   Uint8List? imageData;
   var order;
   LatLng center=  LatLng(48.87964, 2.33231);
+
+  StreamSubscription? _locationSubscription;
+  Location _location=Location();
+
+
+
+
+
+
   void init(BuildContext context){
 
   }
@@ -83,8 +93,6 @@ Order? orderInformation;
   Future<void> actualise()async{
 
   }
-
-
   getMessageScreen(String orderId, BuildContext context,String deliveryId){
     var user=auth.currentUser;
     Navigator.push(context,
