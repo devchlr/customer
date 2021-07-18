@@ -22,18 +22,20 @@ class _SplashScreenState extends State<SplashScreen> {
     nextScreen();
   }
   void nextScreen()async{
-    if(await widget._auth.currentUser==null){
-      print('oki1');
-      String nextPage= await sharedPreferenceService.getStartPreferencePage();
-      print(nextPage=='');
-      Timer(Duration(seconds: 6),
+    Timer(Duration(seconds: 6),
               () => Navigator.pushReplacementNamed(context, nextPage==''?'/tuto':nextPage));
-    }else{
-      print('toujours actif');
-      String nextPage= await sharedPreferenceService.getStartPreferencePage();
-      Timer(Duration(seconds: 6),
-              () => Navigator.pushReplacementNamed(context, nextPage));
-    }
+//     if(await widget._auth.currentUser==null){
+//       print('oki1');
+//       String nextPage= await sharedPreferenceService.getStartPreferencePage();
+//       print(nextPage=='');
+//       Timer(Duration(seconds: 6),
+//               () => Navigator.pushReplacementNamed(context, nextPage==''?'/tuto':nextPage));
+//     }else{
+//       print('toujours actif');
+//       String nextPage= await sharedPreferenceService.getStartPreferencePage();
+//       Timer(Duration(seconds: 6),
+//               () => Navigator.pushReplacementNamed(context, nextPage));
+//     }
   }
 
   @override
